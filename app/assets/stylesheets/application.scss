@@ -21,10 +21,18 @@
   box-sizing: border-box;
 }
 
+.container {
+  width: 90%;
+}
+
 a, a:hover, a:focus {
   margin: 0px;
   padding: 0px;
   text-decoration: none;
+}
+
+.clearfix {
+  clear: both;
 }
 
 /* ###### login-info setting ###### */
@@ -50,3 +58,16 @@ a, a:hover, a:focus {
   padding: 0px 10px;
 }
 
+/* ###### login-btn ###### */
+.login-btn {
+  display: inline-block;
+  float: right;
+}
+
+.text-white a {
+  color: #fff;
+}
+
+.dropdown-menu {
+  min-width: 80px !important;
+}
