@@ -41,6 +41,8 @@ gem 'devise'
 gem 'google-api-client'
 gem 'google-cloud-vision'
 
+gem 'simple_form'
+
 group :production do 
   gem 'pg' 
 end 

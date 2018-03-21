@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for @user do |f| %>
+    
+    <div class="col-xs-12 col-md-6">
+      <div class="avatar">
+        <%= image_tag @user.avatar, width: "300px" if @user.avatar? %>
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="user-info">
+        <%= f.input :name, placeholder: @user.email.split("@").first.capitalize %>
+        <%= f.input :intro %>
+        <%= f.submit 'Update Profile', class: "btn btn-md btn-success" %>
+      </div>
+    </div>
+  
+    <% end %>
+  </div>
+</div>
