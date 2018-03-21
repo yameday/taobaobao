@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def edit
     unless current_user == @user
-      flash[:danger] = "Not allow!"
+      flash[:alert] = "Not allow!"
       redirect_to root_path
     end
   end
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to edit_user_path
+      flash[:notice] = "Great! The profile was updated successfully."
     else
       render :edit
     end
