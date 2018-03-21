@@ -2,9 +2,16 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :update]
 
+  def edit
+    unless current_user == @user
+      flash[:danger] = "Not allow!"
+      redirect_to root_path
+    end
+  end
+
   def update
     if @user.update(user_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to edit_user_path
     else
       render :edit
     end

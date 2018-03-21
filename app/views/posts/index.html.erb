@@ -7,7 +7,11 @@
         <% if current_user %>
           <div class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.email.split("@").first.capitalize %> <span class="caret"></span>
+              <% if current_user.name? %>
+                <%= current_user.name.capitalize %> <span class="caret"></span>
+              <% else %>
+                <%= current_user.email.split("@").first.capitalize %> <span class="caret"></span>
+              <% end %>
             </button>
             
             <ul class="dropdown-menu">
