@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20180322075515) do
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "photo"
+    t.string "url"
+    t.text "description"
+    t.string "delivery"
+    t.integer "price"
+    t.integer "user_id"
+    t.string "participants_count"
+    t.integer "goal"
+    t.datetime "due_time"
+    t.string "status"
   end
 
   create_table "replies", force: :cascade do |t|
