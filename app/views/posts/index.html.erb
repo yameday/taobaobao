@@ -1,12 +1,26 @@
-<h1>我是Posts Index</h1>
+<h1>我是posts#index</h1>
 
 <div class="row">
+
   <div class="col-md-9 col-xs-12">
     <%= link_to "開團", new_post_path, class: "btn btn-primary btn-lg" %>
+
     <%= link_to "搜圖", root_path, class: "btn btn-info btn-lg" %>
+    <!-- temporary path reserved for search function -->
+
+    <br><br>
+
+    <% @posts.each do |post| %>      
+      <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
+      <%= post.price %>
+      <%= post.goal %>
+      <%= post.due_time %>
+    <% end %>
+
   </div>
 
   <div class="col-md-3 col-xs-6">
     
   </div>
+
 </div>
