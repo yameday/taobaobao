@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
 end
