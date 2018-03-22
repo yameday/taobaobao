@@ -2,26 +2,23 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <% if current_user == @user %>
-        <%= simple_form_for @user do |f| %>
         
         <div class="col-xs-12 col-md-6">
           <div class="avatar">
             <%= image_tag @user.avatar, class: "img-responsive center-block" if @user.avatar? %>
-            <%= f.file_field :avatar %>
           </div>
         </div>
 
         <div class="col-xs-12 col-md-6">
           <div class="user-info">
-            <%= f.input :name, placeholder: @user.email.split("@").first.capitalize %>
-            <%= f.input :intro, input_html: { rows: 6 } %>
-            <%= f.submit 'Update Profile', class: "btn btn-md btn-success" %>
-            <%= link_to "Back", user_path(@user), class: "btn btn-md btn-default" %>
+            <h2><%= @user.name %></h2>
+            <p><%= simple_format(@user.intro) %></p>
+            <%= link_to "Edit Profile",edit_user_path(@user), class: "btn btn-success" %>
           </div>
         </div>
 
-        <% end %>
       <% end %>
+      <hr />
     </div>
   </div>
 </div>

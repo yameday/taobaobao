@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def edit
     unless current_user == @user
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to edit_user_path
+      redirect_to user_path
       flash[:notice] = "Great! The profile was updated successfully."
     else
       render :edit

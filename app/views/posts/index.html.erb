@@ -12,9 +12,9 @@
 
     <% @posts.each do |post| %>      
       <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
-      <%= post.price %>
-      <%= post.goal %>
-      <%= post.due_time %>
+      價格：<%= post.price %>
+      成團人數：<%= post.goal %>
+      截止時間：<%= time_ago_in_words(post.due_time) %> Left
     <% end %>
 
   </div>
