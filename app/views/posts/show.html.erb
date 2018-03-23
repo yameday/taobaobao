@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="md-xs-12 clearfix">
+      <h1><%= @post.title.capitalize %></h1>
+      <div class="col-xs-6">
+        <%= image_tag @post.photo, class: "img-responsive center-block" %>
+      </div>
+      <div class="col-xs-6">
+        <p><strong>價格：</strong> <%= @post.price %></p>
+        <p><strong>成團人數：</strong> <%= @post.goal %></p>
+        <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
+      </div>
+      
+      <div class="col-xs-12">
+        <div class="post-replies">
+          <hr />
+          <% @post.replies.each do |reply| %>
+            <h2><%= reply.user.name %></h2>
+            <p><%= simple_format(reply.comment) %></p>
+            <p class="text-muted"><%= time_ago_in_words reply.created_at %> ago</p>
+            <hr />
+          <% end %>
+        </div>
+
+        <div class="reply-form">
+          <%= simple_form_for [@post, @reply] do |f| %>
+            <%= f.input :comment, placeholder: "留言..." %>
+            <%= f.submit "留言", class: "btn btn-info" %>
+            <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

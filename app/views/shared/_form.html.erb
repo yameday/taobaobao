@@ -1,0 +1,13 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title, label: "名稱" %>
+  <%= f.input :url, label: "網址" %>
+  <%= f.hidden_field :photo_cache %>
+  <%= f.file_field :photo %>
+  <%= f.input :description, label: "描述" %>
+  <%= f.input :delivery, priority: [ "直送宅配到府" ], collection: [ "直送宅配到府", "直送超商取貨", "集貨宅配到府", "集貨超商取貨" ], label: "運送方式" %>
+  <%= f.input :price, label: "價格" %>
+  <%= f.input :goal, label: "成團人數" %>
+  <%= f.input :due_time, label: "截團時間" %>
+
+  <%= f.button :submit, "送出", class: "btn btn-primary btn-lg" %>
+<% end %>
