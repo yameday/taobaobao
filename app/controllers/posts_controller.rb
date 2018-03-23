@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-
-  before_action :find_post, only: [:edit, :update]
+  before_action :authenticate_user!
+  before_action :find_post, only: [:show, :edit, :update]
   
   def index
     @posts = Post.all
@@ -12,11 +12,17 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @replies = Reply.all
+    @reply = Reply.new
   end
 
   def edit

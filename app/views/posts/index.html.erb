@@ -15,6 +15,7 @@
       價格：<%= post.price %>
       成團人數：<%= post.goal %>
       截止時間：<%= time_ago_in_words(post.due_time) %> Left
+      <%= link_to "看更多...", post_path(post), class: "btn btn-info" %>
     <% end %>
 
   </div>
