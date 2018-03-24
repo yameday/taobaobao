@@ -16,8 +16,8 @@
 
       <% @posts.each do |post| %>      
         <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
-        價格：<%= post.price %>
-        成團人數：<%= post.goal %>
+        價格：<%= post.price %> 元
+        成團人數：<%= post.goal %> 人
         截止時間：<%= time_ago_in_words(post.due_time) %> Left
         <%= link_to "看更多...", post_path(post), class: "btn btn-info" %>
       <% end %>
