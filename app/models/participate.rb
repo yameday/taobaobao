@@ -1,5 +1,4 @@
 class Participate < ApplicationRecord
   belongs_to :user
-  belongs_to :post
-  # validates :participate_id, uniqueness: { scope: :user_id }
+  belongs_to :post, counter_cache: true
 end
