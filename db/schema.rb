@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323154028) do
+ActiveRecord::Schema.define(version: 20180324105409) do
 
   create_table "participates", force: :cascade do |t|
     t.integer "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180323154028) do
     t.integer "goal"
     t.datetime "due_time"
     t.string "status"
+    t.integer "participates_count", default: 0
   end
 
   create_table "replies", force: :cascade do |t|

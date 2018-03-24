@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     
-    <div class="col-md-12 col-xs-12">
-      
-      <h1>修改合購文</h1> <br>  
+    <div class="col-md-4 col-xs-6">
+      <%= image_tag @post.photo, size: "300x300", class: "img-thumbnail" %>
+    </div>
 
+    <div class="col-md-8 col-xs-12">
       <%= render partial: "shared/form" %> 
-
     </div>
 
   </div>
