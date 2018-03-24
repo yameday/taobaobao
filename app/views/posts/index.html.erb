@@ -1,25 +1,31 @@
-<div class="row">
+<div class="container_table">
+  <div class="jumbotron">
+    <h1>同樣的商品，不同的報價</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
 
-  <div class="col-md-9 col-xs-12">
-    <%= link_to "開團", new_post_path, class: "btn btn-primary btn-lg" %>
+    <div class="col-md-9 col-xs-12">
+      <%= link_to "開團", new_post_path, class: "btn btn-primary btn-lg" %>
 
-    <%= link_to "搜圖", root_path, class: "btn btn-info btn-lg" %>
-    <!-- temporary path for search function -->
+      <%= link_to "搜圖", root_path, class: "btn btn-info btn-lg" %>
+      <!-- temporary path reserved for search function -->
 
-    <br><br>
+      <br><br>
 
-    <% @posts.each do |post| %>      
-      <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
-      價格：<%= post.price %> 元
-      成團人數：<%= post.goal %> 人
-      截止時間：<%= time_ago_in_words(post.due_time) %> left
-    <% end %>
+      <% @posts.each do |post| %>      
+        <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
+        價格：<%= post.price %>
+        成團人數：<%= post.goal %>
+        截止時間：<%= time_ago_in_words(post.due_time) %> Left
+        <%= link_to "看更多...", post_path(post), class: "btn btn-info" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-3 col-xs-6">
+      
+    </div>
 
   </div>
-
-  <!-- reserved for Top 5 and Newest 5 posts -->
-  <div class="col-md-3 col-xs-6">
-    
-  </div>
-
 </div>
