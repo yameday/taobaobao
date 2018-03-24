@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :create, :new, :show, :edit, :update] do
     resources :replies, only: [:index, :create]
+    member do
+      post :participate
+      post :unparticipate
+    end
   end
 
   resources :users, only: [:show, :edit, :update]
