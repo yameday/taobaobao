@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-9 col-xs-12">
+    <div class="col-md-8 col-xs-12">
       <%= link_to "開團", new_post_path, class: "btn btn-primary btn-lg" %>
 
       <%= link_to "搜圖", root_path, class: "btn btn-info btn-lg" %>
@@ -14,16 +14,31 @@
 
       <br><br>
 
-      <% @posts.each do |post| %>      
-        <%= image_tag post.photo, size: "200x200", class: "img-thumbnail" %>
-        價格：<%= post.price %> 元
-        成團人數：<%= post.goal %> 人
-        截止時間：<%= time_ago_in_words(post.due_time) %> Left
+      <% @posts.each do |post| %> 
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= link_to post_path(post) do %>
+              <div class="media">
+                <div class="media-left">
+                  <%= image_tag post.photo, class: "media-object", width: "200px" %>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><%= post.title %></h4>
+                  <br>
+                  <p><%= truncate(post.description, length: 100) %></p>
+                  <p>價格：<%= post.price %> 元</p>
+                  <p>成團人數：<%= post.goal %> 人</p>
+                  <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
         <%= link_to "看更多...", post_path(post), class: "btn btn-info" %>
       <% end %>
     </div>
 
-    <div class="col-md-3 col-xs-6">
+    <div class="col-md-4 col-xs-6">
       
     </div>
 
