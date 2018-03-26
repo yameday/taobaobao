@@ -13,10 +13,12 @@
         <p><strong>成團人數：</strong> <%= @post.goal %></p>
         <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
         <p><strong>參加人數：</strong> <%= @post.participates_count %></p>
-        <% if @post.is_participated?(current_user) %>    
-          <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-info" %>
-        <% else %>
-          <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-info" %>
+        <% unless current_user == @post.user %>
+          <% if @post.is_participated?(current_user) %>    
+            <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-info" %>
+          <% else %>
+            <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-info" %>
+          <% end %>
         <% end %>
       </div>
 
