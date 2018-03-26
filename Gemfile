@@ -42,6 +42,8 @@ gem 'google-api-client'
 gem 'google-cloud-vision'
 
 gem 'simple_form'
+gem 'rest-client'
+
 
 group :production do 
   gem 'pg' 
