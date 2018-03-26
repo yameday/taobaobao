@@ -24,10 +24,19 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="col-xs-12 col-md-8">
       <div class="post-lists">
         <hr>
+        <h4>主購：</h4>
         <%= render partial: "shared/post_lists", locals: { obj: @user.posts } %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="post-lists">
+        <hr>
+        <h4>參加：</h4>
+        <%= render partial: "shared/post_participates", locals: { obj: @user.participates } %>
       </div>
     </div>
   </div>

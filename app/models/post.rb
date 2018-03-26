@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   validates_presence_of :title, :url, :photo, :description, :delivery, :price, :goal, :due_time
 
   mount_uploader :photo, AvatarImageUploader  
-  has_many :replies
+  has_many :replies, dependent: :destroy
   belongs_to :user
   has_many :participates, dependent: :destroy
   has_many :participated_user, through: :participates, source: :user

@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, uniqueness: true
   validates :name, uniqueness: true
-  has_many :posts
-  has_many :replies
+  has_many :posts, dependent: :destroy
+  has_many :replies, dependent: :destroy
   has_many :participates, dependent: :destroy
   has_many :participated_post, through: :participates, source: :post
 end
