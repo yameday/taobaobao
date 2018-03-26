@@ -18,11 +18,20 @@
               <%= link_to "Edit Profile",edit_user_path(@user), class: "btn btn-success" %>
             </div>
           </div>
+          
+          <br>
 
         <% end %>
       </div>
-      <hr />
-      
+    </div>
+
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <% if current_user == @user %>
+        <div class="post-lists">
+          <hr>
+          <%= render partial: "shared/post_lists", locals: { obj: @user.posts } %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
