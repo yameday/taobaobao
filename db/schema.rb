@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328143443) do
+ActiveRecord::Schema.define(version: 20180328172713) do
+
+  create_table "imgsearches", force: :cascade do |t|
+    t.string "photo"
+    t.text "description"
+    t.string "status"
+    t.text "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "participates", force: :cascade do |t|
     t.integer "user_id"
