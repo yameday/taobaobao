@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    @recent_posts = Post.order(created_at: :desc).limit(5)
+    @hot_posts = Post.order(participates_count: :desc).limit(5)
   end
 
   def new
