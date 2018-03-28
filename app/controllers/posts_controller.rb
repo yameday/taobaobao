@@ -26,11 +26,15 @@ class PostsController < ApplicationController
   end
 
   def edit
+    unless current_user == @post.user
+      flash[:alert] = "Not allow!"
+      redirect_to root_path
+    end
   end
 
   def update
-    if @post.update_attributes(post_params)
-      redirect_to post_path(@post)
+    if @post.update(post_params)
+      redirect_to post_path
     else
       render :edit
     end
