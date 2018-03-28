@@ -44,6 +44,7 @@ gem 'google-cloud-vision'
 gem 'simple_form'
 gem 'rest-client'
 
+gem 'omniauth-facebook'
 
 group :production do 
   gem 'pg' 
