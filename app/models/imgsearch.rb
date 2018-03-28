@@ -1,0 +1,2 @@
+class Imgsearch < ApplicationRecord
+end
