@@ -9,8 +9,10 @@
       </div>
 
       <div class="col-xs-6">
+        <p><strong></strong> <%= link_to "商品網址", @post.url, target: :_blank %> </p>
         <p><strong>價格：</strong> <%= @post.price %> 元</p>
         <p><strong>成團人數：</strong> <%= @post.goal %> 人</p>
+        <p><strong>目前人數：</strong> <%= @post.participates_count %> 人</p>
         <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
         <% if @post.is_participated?(current_user) %>    
           <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>
@@ -18,8 +20,8 @@
           <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-default" %>
         <% end %>      
       </div>
-
-      <div class="col-xs-6">
+      
+      <div class="col-xs-4">
         <p><%= render partial: "shared/post_participants", locals: { obj: @post } %></p>
       </div>
       
