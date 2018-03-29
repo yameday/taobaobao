@@ -1,0 +1,5 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.simple_fields_for :post do |c| %>
+    <%= c.input :photo , as: :file, label: "商品圖片" %>
+  <% end %>
+<% end %>

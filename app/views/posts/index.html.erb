@@ -10,17 +10,25 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-9 col-xs-12">
-        <%= render partial: "shared/post_lists", locals: { obj: @posts } %>
+      <div class="col-md-12 col-xs-12">
+        <div class="hot-item">
+          <h4>熱門合購</h4>
+          <%= render partial: "shared/hot", locals: { obj: @hot_posts } %> 
+        </div>
       </div>
 
-      <div class="col-md-3 col-xs-6">
-        
-        <h4>熱門合購</h4>
-        <%= render partial: "shared/hot", locals: { obj: @hot_posts } %>
-        
-        <h4>最新合購</h4>
-        <%= render partial: "shared/recent", locals: { obj: @recent_posts } %>
+      <div class="col-md-12 col-xs-12">
+        <div class="recent-item">
+          <h4>最新合購</h4>
+          <%= render partial: "shared/recent", locals: { obj: @recent_posts } %> 
+        </div>
+      </div>
+
+      <div class="col-md-12 col-xs-12">
+        <div class="post-item">
+          <h4>所有合購</h4>
+          <%= render partial: "shared/post_lists", locals: { obj: @posts } %> 
+        </div>
       </div>
 
     </div>

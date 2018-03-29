@@ -1,27 +1,25 @@
-<% obj.each do |post| %> 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <%= link_to post_path(post) do %>
-        <div class="media">
-          <div class="col-xs-12 col-md-12">
+<% obj.each do |post| %>
+  <div class="col-md-4 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to post_path(post) do %>
+          <div class="media">
             <div class="media-left">
-              <%= image_tag post.photo, class: "media-object img-responsive", width: "200px" %>
+              <%= image_tag post.photo, class: "media-object img-responsive center-block" %>
             </div>
           </div>
-
-          <div class="col-xs-12 col-md-12">
-            <div class="media-body">
-              <br>
-              <h4 class="media-heading"><%= post.title %></h4>
-              <br>
-              <p>價格：<%= post.price %> 元</p>
-              <p>目前人數：<%= post.participates_count %> 人</p>
-              <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
-            </div>
+    
+          <div class="media-body">
+            <br>
+            <h4 class="media-heading"><%= post.title %></h4>
+            <br>
+            <p>價格：<%= post.price %> 元</p>
+            <p>目前人數：<%= post.participates_count %> 人</p>
+            <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
           </div>
-          
-        </div>
-      <% end %>
+            
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
