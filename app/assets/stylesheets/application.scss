@@ -111,6 +111,28 @@ h1, h2, h3, p {
   vertical-align: middle;
 }
 
+.hot-item img {
+  height: 300px;
+  max-width: auto;
+}
+
+.recent-item img {
+  height: 300px;
+  max-width: auto;
+}
+
+.post-item img {
+  height: 300px;
+  max-width: auto;
+}
+
+/* ###### Post Show ###### */
+
+.show-img img {
+  max-height: 400px;
+  width: auto;
+}
+
 /* ###### Navbar ###### */
 .brand-text {
   font-size: 2em;

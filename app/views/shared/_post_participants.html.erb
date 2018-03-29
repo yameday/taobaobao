@@ -2,16 +2,18 @@
   <div class="col-xs-12"> 
     <div class="panel panel-default"> 
       <div class="panel-heading"> 
-        <h4 class="panel-title">參加團購者: <%= @post.participates_count %>位</h4> 
+        <h4 class="panel-title">參加團購者: <%= @post.participates_count %> 位</h4> 
       </div> 
       <div class="panel-body"> 
-        <% obj.participates.each do |participate| %> 
-          <% if participate.user.name %> 
-            <%= participate.user.name %> 
-          <% else %> 
-            <%= participate.user.email.split("@").first.capitalize %> 
-          <% end %> 
-        <% end %> 
+          <% obj.participates.each do |participate| %> 
+            <p>
+              <% if participate.user.name %> 
+                <%= participate.user.name %> 
+              <% else %> 
+                <%= participate.user.email.split("@").first.capitalize %> 
+              <% end %> 
+            </p>
+         <% end %> 
       </div> 
     </div> 
   </div> 

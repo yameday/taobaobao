@@ -1,29 +1,26 @@
 <% obj.each do |post| %> 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <%= link_to post_path(post) do %>
-        <div class="media">
-          <div class="col-xs-6 col-md-4">
+  <div class="col-md-4 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to post_path(post) do %>
+          <div class="media">
             <div class="media-left">
-              <%= image_tag post.photo, class: "media-object img-responsive", width: "400px" %>
+              <%= image_tag post.photo, class: "media-object img-responsive center-block" %>
             </div>
           </div>
-
-          <div class="col-xs-6 col-md-8">
-            <div class="media-body">
-              <h4 class="media-heading"><%= post.title %></h4>
-              <br>
-              <p><%= truncate(post.description, length: 100) %></p>
-              <p>主購：<%= post.user.name %> </p>
-              <p>價格：<%= post.price %> 元</p>
-              <p>成團人數：<%= post.goal %> 人</p>
-              <p>目前人數：<%= post.participates_count %> 人</p>
-              <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
-            </div>
-          </div>
-          
-        </div>
-      <% end %>
+    
+          <div class="media-body">
+            <br>
+            <h4 class="media-heading"><%= post.title %></h4>
+            <br>
+            <p>主購：<%= post.user.name %> </p>
+            <p>價格：<%= post.price %> 元</p>
+            <p>成團人數：<%= post.goal %> 人</p>
+            <p>目前人數：<%= post.participates_count %> 人</p>
+            <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
+          </div>   
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -1,12 +1,47 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :title, label: "名稱" %>
-  <%= f.input :url, label: "網址" %>
-  <%= f.file_field :photo %> <br>
-  <%= f.input :description, label: "描述" %>
-  <%= f.input :delivery, priority: [ "直送宅配到府" ], collection: [ "直送宅配到府", "直送超商取貨", "集貨宅配到府", "集貨超商取貨" ], label: "運送方式" %>
-  <%= f.input :price, label: "價格" %>
-  <%= f.input :goal, label: "成團人數" %>
-  <%= f.input :due_time, label: "截團時間" %>
 
-  <%= f.button :submit, "送出", class: "btn btn-primary btn-lg" %>
+  <div class="col-md-4 col-xs-12">
+    <% if @post.photo.present? %>
+      <%= image_tag @post.photo, size: "300x300", class: "img-responsive" %>
+    <% end %>
+
+    <div class="group">
+      <%= f.input :photo, as: :file, label: "商品圖片" %>
+    </div>
+  </div>
+  
+  <div class="col-md-8 col-xs-12">
+
+    <div class="group">
+      <%= f.input :title, label: "名稱" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :url, label: "網址" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :description, label: "描述" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :delivery, priority: [ "直送宅配到府" ], collection: [ "直送宅配到府", "直送超商取貨", "集貨宅配到府", "集貨超商取貨" ], label: "運送方式" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :price, label: "價格" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :goal, label: "成團人數" %> 
+    </div>
+    
+    <div class="group">
+      <%= f.input :due_time, label: "截團時間" %> 
+    </div>
+    
+    <%= f.button :submit, "送出", class: "btn btn-primary btn-lg" %>
+
+  </div>
+
 <% end %>
