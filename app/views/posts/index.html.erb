@@ -13,21 +13,21 @@
       <div class="col-md-12 col-xs-12">
         <div class="hot-item">
           <h3 class="text-center">熱門合購</h3>
-          <%= render partial: "shared/hot", locals: { obj: @hot_posts } %> 
+          <%= render partial: "shared/top_post", locals: { obj: @hot_posts } %> 
         </div>
       </div>
 
       <div class="col-md-12 col-xs-12">
         <div class="recent-item">
           <h3 class="text-center">最新合購</h3>
-          <%= render partial: "shared/recent", locals: { obj: @recent_posts } %> 
+          <%= render partial: "shared/new_post", locals: { obj: @recent_posts } %> 
         </div>
       </div>
 
       <div class="col-md-12 col-xs-12">
         <div class="post-item">
           <h3 class="text-center">所有合購</h3>
-          <%= render partial: "shared/post_lists", locals: { obj: @posts } %> 
+          <%= render partial: "shared/post-item", locals: { obj: @posts } %> 
         </div>
       </div>
 
