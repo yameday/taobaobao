@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-xs-12">
+     
+      <h3>Upload photo</h3>
+
+      <%= form_for @search do |f| %>
+        <div id="upload-preview" >
+           
+        </div>
+        <div class="form-group">
+          <%= f.label :photo, "照片" %>
+          <%#= image_tag @user.avatar if @user.avatar? %>
+          <%= f.file_field :photo, class: "file" %>
+          <%#= image_tag @search.photo.current_path, size: "300x300" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update", class: "btn btn-primary" %>
+          <%#= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

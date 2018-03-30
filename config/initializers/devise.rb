@@ -10,6 +10,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '81dcabc3585839da1f38fd0b6ce8a43d730f21443e0f019c1f34aee0f40b4e2e58879507f029e06a690aca35bb5769c55871a54eca83096daa0239dbf8bdf1d4'
   
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -32,6 +33,8 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  fb_config = Rails.application.config_for(:facebook)
+  config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], scope: "public_profile,email", info_fields: "email,name", callback_url: "https://localhost:3000/users/auth/facebook/callback"
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
