@@ -5,15 +5,30 @@
       <div class="pi-img-wrapper">
         <%= image_tag post.photo, class: "img-responsive" %>
       </div>
-
-      <h3><%= post.title %></h3>
-
-      <div class="pi-price">價格：<%= post.price %> 元</div>
       
-      <% if post.is_participated?(current_user) %>    
-        <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn participate" %>
+      <% if post.opening? %>
+        <h3>
+          <span class="label label-warning">開團中</span>
+          <%= post.title %> 
+        </h3>
+
+        <div class="pi-price">價格：<%= post.price %> 元</div>
+      
+        <% if post.is_participated?(current_user) %>    
+          <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn participate" %>
+        <% else %>
+          <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
+        <% end %>
+
       <% else %>
-        <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
+      
+        <h3>
+          <span class="label label-danger">已流團</span>
+          <%= post.title %> 
+        </h3>
+        
+        <div class="pi-price">價格：<%= post.price %> 元</div>
+
       <% end %>
 
       <div class="sticker sticker-new"></div>
