@@ -1,23 +1,13 @@
 <% obj.each do |participate| %> 
-  <div class="panel panel-default text-center">
-    <div class="panel-body">
-      <%= link_to post_path(participate.post) do %>
-        <div class="media">
-          <div class="col-xs-12">
-            <div class="media-left">
-              <%= image_tag participate.post.photo, class: "media-object", width: "200px" %>
-            </div>
-          </div>
-
-          <div class="col-xs-12">
-            <div class="media-body">
-              <h4 class="media-heading"><%= participate.post.title %></h4>
-              <br>
-            </div>
-          </div>
-          
+  <%= link_to post_path(participate.post) do %>
+    <div class="col-xs-12 col-md-3">
+      <div class="product-item">
+        <div class="pi-img-wrapper">
+          <%= image_tag participate.post.photo, class: "img-responsive" %>
         </div>
-      <% end %>
+
+        <h4><%= participate.post.title %></h4>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
