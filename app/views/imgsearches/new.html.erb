@@ -1,26 +1,35 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-8 col-xs-12">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
      
-      <h3>Upload photo</h3>
+      <h1 class="text-center">同樣的商品，不同的報價</h1>
 
       <%= form_for @search do |f| %>
         <div id="upload-preview" >
            
         </div>
-        <div class="form-group">
-          <%= f.label :photo, "照片" %>
-          <%#= image_tag @user.avatar if @user.avatar? %>
-          <%= f.file_field :photo, class: "file" %>
-          <%#= image_tag @search.photo.current_path, size: "300x300" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "Update", class: "btn btn-primary" %>
-          <%#= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+        <div class="col-xs-12">
+          <div class="form-inline text-center">
+            <div class="form-group">
+              <%#= image_tag @user.avatar if @user.avatar? %>
+              <%= f.file_field :photo, class: "form-control" %>
+              <%#= image_tag @search.photo.current_path, size: "300x300" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "找商品", class: "btn btn-info" %>
+              <%#= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+            </div>
+
+          </div>
         </div>
       <% end %>
     </div>
 
+  </div>
+
+  <div class="row">
+    
   </div>
 </div>
