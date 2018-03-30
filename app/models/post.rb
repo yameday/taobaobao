@@ -12,4 +12,8 @@ class Post < ApplicationRecord
     self.participated_user.include?(user)
   end
 
+  def is_available?
+    self.participates_count == self.goal
+  end
+
 end
