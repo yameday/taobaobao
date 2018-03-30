@@ -1,36 +1,27 @@
 <div class="container">
-  <div class="row">
-
-    <div class="col-md-8 col-xs-12">
-     <%= image_tag @search.photo, class: "img-responsive center-block", width: "400", height: "400" %>
-       <br>
-			 <%  @sortarry.each do |f| %>
-			<div class="col-sm-4 col-lg-4 col-md-4">
-				<div class="thumbnail">			
-						<%= link_to f[3], target: "_blank", :class => 'button white' do %>	
-							<button type="button" class="btn btn-default" aria-label="Left Align">						
-								<%= image_tag(f[1], width: "220", height: "220") %>
-							</button>	
+    <div class="row">
+        <%  @sortarry.each do |f| %>
+        <div class="col-md-4">
+            <div class="product-item">
+              <div class="pi-img-wrapper">
+                <!--<img src="http://keenthemes.com/assets/bootsnipp/k1.jpg" class="img-responsive" alt="Berry Lace Dress">-->
+                
+              <%= link_to f[3], target: "_blank", :class => 'button white' do %>	
+											
+								<%= image_tag f[1], class: "img-responsive" %>
+							
 							<% end %>
-								
-        <%#= simple_format f[1] %>			
-					<%#= link_to image_tag( f[3], width: 300, class: "img-thumbnail"), f[0] %>
-					
-					<div class="caption">			
-            <h5><%= link_to f[0], f[3], target: "_blank" %></h5>
-						<h4><%#= link_to photo.title, photo_path(photo) %></h4>
-						<p><%#= simple_format(photo.description) %></p>
-
-					</div>
-					<div class="ratings">
-						<p ><%= f[2] %></p>
-						
-					</div>
-				</div>
-			</div>	
-			<% end %>
-
+                <div>
+                  <a href="#" class="btn">Zoom</a>
+                  <a href="#" class="btn">View</a>
+                </div>
+              </div>
+              <h3><%= link_to f[0], f[3], target: "_blank" %></h3>
+              <div class="pi-price">$<%= f[2] %></div>
+              
+              <!--<div class="sticker sticker-new"></div>-->
+            </div>
+        </div>
+        <% end %>
     </div>
-
-  </div>
 </div>

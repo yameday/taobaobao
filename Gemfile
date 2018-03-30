@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass' 
 gem 'carrierwave' 
 # Use jquery for rails 
-gem 'jquery-rails' 
+gem 'jquery-rails'
  
 gem 'devise' 
  
@@ -45,6 +45,9 @@ gem 'simple_form'
 gem 'rest-client'
 
 gem 'omniauth-facebook'
+
+gem 'compass-rails', github: 'Compass/compass-rails'
+
 
 group :production do 
   gem 'pg' 
