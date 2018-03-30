@@ -1,26 +1,14 @@
 <% obj.each do |post| %> 
-  <div class="col-md-4 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= link_to post_path(post) do %>
-          <div class="media">
-            <div class="media-left">
-              <%= image_tag post.photo, class: "media-object img-responsive center-block" %>
-            </div>
-          </div>
-    
-          <div class="media-body">
-            <br>
-            <h4 class="media-heading"><%= post.title %></h4>
-            <br>
-            <p>主購：<%= post.user.name %> </p>
-            <p>價格：<%= post.price %> 元</p>
-            <p>成團人數：<%= post.goal %> 人</p>
-            <p>目前人數：<%= post.participates_count %> 人</p>
-            <p>截止時間：<%= time_ago_in_words(post.due_time) %> Left</p>
-          </div>   
-        <% end %>
+  <%= link_to post_path(post) do %>
+    <div class="col-xs-12 col-md-3">
+      <div class="product-item">
+        <div class="pi-img-wrapper">
+          <%= image_tag post.photo, class: "img-responsive" %>
+        </div>
+
+        <h4><%= post.title %></h4>
+        <div class="pi-price"><%= post.price %> 元</div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
