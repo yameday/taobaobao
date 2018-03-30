@@ -1,35 +1,90 @@
-<div class="container">
-  <div class="row">
+<div class="container text-center">
 
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-     
-      <h1 class="text-center">同樣的商品，不同的報價</h1>
 
-      <%= form_for @search do |f| %>
-        <div id="upload-preview" >
-           
-        </div>
-        <div class="col-xs-12">
-          <div class="form-inline text-center">
-            <div class="form-group">
-              <%#= image_tag @user.avatar if @user.avatar? %>
-              <%= f.file_field :photo, class: "form-control" %>
-              <%#= image_tag @search.photo.current_path, size: "300x300" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.submit "找商品", class: "btn btn-info" %>
-              <%#= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
-            </div>
-
-          </div>
-        </div>
-      <% end %>
+  <div class="marvel-device iphone-x">
+    <div class="notch">
+      <div class="camera"></div>
+      <div class="speaker"></div>
     </div>
+    <div class="top-bar"></div>
+    <div class="sleep"></div>
+    <div class="bottom-bar"></div>
+    <div class="volume"></div>
+    <div class="overflow">
+      <div class="shadow shadow--tr"></div>
+      <div class="shadow shadow--tl"></div>
+      <div class="shadow shadow--br"></div>
+      <div class="shadow shadow--bl"></div>
+    </div>
+    <div class="inner-shadow"></div>
+    <div class="screen">
+      <!-- Content goes here -->
 
+      <div class="uploadWrapper">
+        <!--<form id="imageUploadForm" class="imageUploadForm">-->
+
+        <%#= form_tag imgsearches_path, :method => :post, :id => 'imageUploadForm', :class => 'imageUploadForm'  do  %>
+          <%= form_for @search, html: {class: "imageUploadForm", id: "imageUploadForm"}  do |f| %>
+            <%#=  form_tag(action: "imgsearches", method: "post", class: "imageUploadForm") do %>
+
+              <span class="helpText" id="helpText">Upload an image</span>
+              <!--<input type='file' id="file" class="uploadButton" accept="image/*" />-->
+              <%= f.file_field :photo, class: "uploadButton", accept: 'image/*' %>
+                <div id="uploadedImg" class="uploadedImg">
+                  <span class="unveil"></span>
+                </div>
+                <!--
+                  <span class="pickFile">
+                    <a href="#" class="pickFileButton">Pick file</a>
+                  </span>
+                  -->
+        <% end %>
+      </div>
+
+    </div>
   </div>
 
-  <div class="row">
-    
-  </div>
+
 </div>
+
+
+
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $uploadedImg[0].style.backgroundImage = 'url(' + e.target.result + ')';
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  var $form = $("#imageUploadForm"),
+    $file = $("#imgsearch_photo"),
+    $uploadedImg = $("#uploadedImg"),
+    $helpText = $("#helpText");
+
+  $file.on('change', function() {
+    console.log($file);
+    console.log('eeee');
+    readURL(this);
+    console.log('ggg');
+    $form.addClass('loading');
+  });
+  $uploadedImg.on('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
+    $form.addClass('loaded');
+  });
+  $helpText.on('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
+    $("#imageUploadForm").submit();
+    setTimeout(function() {
+      //$file.val('');  
+      //$form.removeClass('loading').removeClass('loaded');
+      // $("#imageUploadForm").submit();
+    }, 1000);
+  });
+
+</script>

@@ -26,10 +26,14 @@
         <p><strong>成團人數：</strong> <%= @post.goal %> 人</p>
         <p><strong>目前人數：</strong> <%= @post.participates_count %> 人</p>
         <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
-        <% if @post.is_participated?(current_user) %>    
-          <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>
+        <% if @post.is_available? %>
+          <p class="text-default">已結團</p>
         <% else %>
-          <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-default" %>
+          <% if @post.is_participated?(current_user) %>    
+            <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-default" %>
+          <% end %>
         <% end %>
       </div>
     </div> 
