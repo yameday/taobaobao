@@ -56,6 +56,16 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def search
+    @key_word = params["KeyWord"]
+    if @key_word
+      @posts = Post.where("title LIKE ?", "%#{@key_word}%")
+    else
+      @posts = []
+    end
+  end
+
+
   private
 
   def find_post
