@@ -14,6 +14,11 @@ Rails.application.routes.draw do
       post :participate
       post :unparticipate
     end
+
+    collection do
+      get :search
+    end
+
   end
 
   resources :users, only: [:show, :edit, :update]
