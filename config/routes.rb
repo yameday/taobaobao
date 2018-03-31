@@ -8,11 +8,10 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :create, :new, :show, :edit, :update] do
     resources :replies, only: [:index, :create]
 
-    get :ranking
-
     member do
       post :participate
       post :unparticipate
+      post :postend
     end
 
     collection do

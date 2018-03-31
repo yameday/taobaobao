@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   end
 
   def opening?
-    !over_due?
+    !over_due? 
   end
 
   private
