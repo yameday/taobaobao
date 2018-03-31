@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     member do
       post :participate
       post :unparticipate
-      post :postend
     end
 
     collection do

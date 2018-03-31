@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: :index
-  before_action :find_post, only: [:show, :edit, :update, :participate, :unparticipate]
+  before_action :authenticate_user!, except:  [:index, :search]
+  before_action :find_post, only: [:show, :edit, :update, :participate, :unparticipate, :postend]
   
   def index
     @posts = Post.all
@@ -42,7 +42,6 @@ class PostsController < ApplicationController
     end
   end
 
-  
   def participate
     @post.participates.create!(user: current_user)
     redirect_back(fallback_location: root_path)
@@ -71,7 +70,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time)
+    params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time, :status)
   end
 
 end
