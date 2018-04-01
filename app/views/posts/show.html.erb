@@ -13,6 +13,8 @@
         <p>
           <% if @post.opening? %>
             <span class="label label-warning">開團中</span>
+          <% elsif @post.ending? %>
+            <span class="label label-success">已結團</span>
           <% else %>
             <span class="label label-danger">已流團</span>
           <% end %>
@@ -32,9 +34,8 @@
           <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Ago</p>
         <% end %>
 
+
         <% if @post.opening? %>
-          <p class="text-default">已結團</p>
-        <% else %>
           <% if @post.is_participated?(current_user) %>
             <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>            
           <% else %>
@@ -48,14 +49,38 @@
 
       </div>
     </div> 
+  </div>
   
   <div class="row">
-    <div class="col-xs-12">
-      <div class="col-xs-12 col-md-4">
-        <p><%= render partial: "shared/post_participants", locals: { obj: @post } %></p> 
-      </div>  
+    <% if current_user == @post.user %> 
+      <div class="col-xs-12">
+        <div class="col-xs-12 col-md-4">
+          <br />
+          <p><%= render partial: "shared/post_participants", locals: { obj: @post } %></p> 
+        </div>  
 
-      <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-8">
+          <div class="post-replies">
+            <hr />
+            <% @post.replies.each do |reply| %>
+              <h4><%= reply.user.name %></h2>
+              <p><%= simple_format(reply.comment) %></p>
+              <p class="text-muted"><%= time_ago_in_words reply.created_at %> ago</p>
+              <hr />
+            <% end %>
+          </div>
+
+          <div class="reply-form">
+            <%= simple_form_for [@post, @reply] do |f| %>
+              <%= f.input :comment, placeholder: "留言..." %>
+              <%= f.submit "留言", class: "btn btn-info" %>
+              <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+            <% end %>
+          </div>  
+        </div>   
+      </div>
+    <% else %>
+      <div class="col-xs-10 col-xs-offset-1">
         <div class="post-replies">
           <hr />
           <% @post.replies.each do |reply| %>
@@ -73,7 +98,7 @@
             <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
           <% end %>
         </div>  
-      </div>   
-    </div>
+      </div> 
+    <% end %> 
   </div>   
 </div>

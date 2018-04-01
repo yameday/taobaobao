@@ -1,14 +1,47 @@
 <% obj.each do |post| %> 
-  <%= link_to post_path(post) do %>
-    <div class="col-xs-12 col-md-3">
+  <div class="col-md-4 col-xs-12">
+    <%= link_to post_path(post) do %>
       <div class="product-item">
         <div class="pi-img-wrapper">
           <%= image_tag post.photo, class: "img-responsive" %>
         </div>
 
-        <h4><%= post.title %></h4>
-        <div class="pi-price"><%= post.price %> 元</div>
+        <% if post.opening? %>
+          <h3>
+            <span class="label label-warning">開團中</span>
+            <%= post.title %> 
+          </h3>
+
+          <div class="pi-price">價格：<%= post.price %> 元 &nbsp;</div>
+          <div class="pi-price">目前人數：<%= post.participates_count %> 人</div>
+        
+          <% if post.is_participated?(current_user) %>    
+            <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn participate" %>
+          <% else %>
+            <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
+          <% end %>
+
+        <% elsif post.ending? %>
+          <h3>
+            <span class="label label-success">已結團</span>
+            <%= post.title %> 
+          </h3>
+
+          <div class="pi-price">價格：<%= post.price %> 元 &nbsp;</div>
+          <div class="pi-price">目前人數：<%= post.participates_count %> 人</div>
+
+        <% else %>
+          <h3>
+            <span class="label label-danger">已流團</span>
+            <%= post.title %> 
+          </h3>
+          
+          <div class="pi-price">價格：<%= post.price %> 元</div>
+          <div class="pi-price">目前人數：<%= post.participates_count %> 人</div>
+
+        <% end %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
+

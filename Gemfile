@@ -46,6 +46,8 @@ gem 'rest-client'
 
 gem 'omniauth-facebook'
 
+gem 'filestack-rails', '~> 3.1.0'
+
 gem 'compass-rails', github: 'Compass/compass-rails'
 
 

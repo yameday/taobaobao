@@ -39,6 +39,10 @@
     <div class="group">
       <%= f.input :due_time, label: "截團時間" %> 
     </div>
+
+    <div class="group">
+      <%= f.input :status, priority: [ "開團中" ], collection: [ "開團中", "已結團", "已流團"], label: "開團狀態" %> 
+    </div>
     
     <%= f.button :submit, "送出", class: "btn btn-primary btn-lg" %>
 

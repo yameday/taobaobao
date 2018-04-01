@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328172713) do
+ActiveRecord::Schema.define(version: 20180331114023) do
 
   create_table "imgsearches", force: :cascade do |t|
     t.string "photo"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20180328172713) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_participates_on_post_id"
     t.index ["user_id"], name: "index_participates_on_user_id"
+  end
+
+  create_table "postends", force: :cascade do |t|
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_postends_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
