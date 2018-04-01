@@ -232,13 +232,6 @@ body {
 
 .pi-img-wrapper {
   position: relative;
-  width: 320px;
-  height: 300px;
-}
-
-.pi-img-wrapper img {
-  height: 100%;
-  width: 100%;
 }
 
 .pi-img-wrapper div {
@@ -248,7 +241,7 @@ body {
   top: 0;
   display: none;
   width: 100%;
-  height: 100%;
+  height: auto;
   text-align: center;
 }
 
