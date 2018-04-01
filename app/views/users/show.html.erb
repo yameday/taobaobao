@@ -31,14 +31,14 @@
       <div class="col-xs-12">
         <div class="hot-item">
           <h3 class="text-center">主購</h3>
-          <%= render partial: "shared/post_lists", locals: { obj: @user.posts } %>
+          <%= render partial: "shared/post_item_new", locals: { obj: @user.posts } %>
         </div>
       </div>
 
       <div class="col-xs-12">
         <div class="hot-item">
           <h3 class="text-center">參加</h3>
-          <%= render partial: "shared/post_participates", locals: { obj: @user.participates } %>
+          <%= render partial: "shared/post_item_new", locals: { obj: @user.participates } %>
         </div>
       </div>
     </div>
