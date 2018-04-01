@@ -29,7 +29,7 @@
                          <h3><%= post.title %></h3>
                            <h4>價格：$<%= post.price %> </h4>
                            
-                            <h4 style="float: left;">目前人數：<%= post.participates_count %> 人</h4>
+                            <h4>目前人數：<%= post.participates_count %> 人</h4>
                             <div class="text-right" style="float: right;">
                                 <% if post.is_participated?(current_user) %>    
                                   <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn btn-danger participate" %>
@@ -37,20 +37,23 @@
                                   <%= link_to '參加', participate_post_path(post), method: :post, class: "btn btn-info participate" %>
                                 <% end %>
                             </div>
+                            <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
                         <% elsif post.ending? %>
                          
                           <h3><%= post.title %></h3>
 
                           <h4>價格：$<%= post.price %> </h4>
-                          <div class="text-muted">截止時間：<%= post.due_time %> 前</div>
+                          <h4>參加人數：<%= post.participates_count %> 人</h4>
+                          <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
                           
                         <% else %>
 
                           <h3><%= post.title %></h3>
  
-                           <h4>價格：$<%= post.price %> </h4> 
+                          <h4>價格：$<%= post.price %> </h4> 
+                          <h4>參加人數：<%= post.participates_count %> 人</h4>
                          <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
-                          <div class="text-muted">截止時間：<%= post.due_time %> 前</div>
+                          <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
               
                         <% end %>
                        

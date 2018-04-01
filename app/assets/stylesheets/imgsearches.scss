@@ -232,6 +232,13 @@ body {
 
 .pi-img-wrapper {
   position: relative;
+  width: 320px;
+  height: 300px;
+}
+
+.pi-img-wrapper img {
+  height: 100%;
+  width: 100%;
 }
 
 .pi-img-wrapper div {
@@ -280,6 +287,10 @@ body {
 
 .product-item h3 a:hover {
   color: #E02222;
+}
+
+.text-left {
+  padding-buttom: 14px;
 }
 
 .pi-price {
