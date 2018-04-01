@@ -42,7 +42,7 @@
                           <h3><%= post.title %></h3>
 
                           <h4>價格：$<%= post.price %> </h4>
-                          <div class="text-muted">截止時間：<%= post.due_time %> 前</div>
+                          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
                           
                         <% else %>
 
@@ -50,7 +50,7 @@
  
                            <h4>價格：$<%= post.price %> </h4> 
                          <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
-                          <div class="text-muted">截止時間：<%= post.due_time %> 前</div>
+                          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
               
                         <% end %>
                        
