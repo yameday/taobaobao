@@ -1,0 +1,61 @@
+<% obj.each do |post| %>
+ 
+  <div class="col-md-4 col-sm-6 portfolio-item">
+                   <div class="product-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                         <%#= image_tag("img/portfolio/escape.png", :alt => "", :class => "img-responsive") %>
+                         <div class="pi-img-wrapper">
+                         <%#= image_tag post.photo, class: "img-responsive" %>
+                           <%= link_to post_path(post), target: "_blank", :class => 'button white' do %>								
+                            <%= image_tag post.photo, class: "img-responsive" %>
+                              <% end %>
+                      </div>
+                    </a>
+                    <div class="portfolio-caption" style="text-align:left">
+                       <% if post.opening? %>
+                          <h3>
+                           <%= post.title %> 
+                            <span class="label label-warning">開團中</span>
+                            
+                          </h3>
+                           <h4>價格：$<%= post.price %> 目前人數：<%= post.participates_count %> 人</h4>
+                          
+
+                          <% if post.is_participated?(current_user) %>    
+                            <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn participate" %>
+                          <% else %>
+                            <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
+                          <% end %>
+
+                        <% else %>
+
+                          <h3>
+                           <%= post.title %> 
+                            <span class="label label-danger">已流團</span>
+                            
+                          </h3>
+
+                         
+                           <h4>價格：$<%= post.price %> </h4>
+                          <h4>目前人數：<%= post.participates_count %> 人</h4>
+                         <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
+                          <div class="text-muted">截止時間：<%= post.due_time %> 前</div>
+              
+                        <% end %>
+                       
+                    </div>
+                </div>
+ 
+</div>
+  
+  
+  
+  
+<% end %>
+
+       
