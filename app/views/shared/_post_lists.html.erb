@@ -21,8 +21,16 @@
             <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
           <% end %>
 
+        <% elsif post.ending? %>
+          <h3>
+            <span class="label label-success">已結團</span>
+            <%= post.title %> 
+          </h3>
+
+          <div class="pi-price">價格：<%= post.price %> 元 &nbsp;</div>
+          <div class="pi-price">目前人數：<%= post.participates_count %> 人</div>
+
         <% else %>
-        
           <h3>
             <span class="label label-danger">已流團</span>
             <%= post.title %> 

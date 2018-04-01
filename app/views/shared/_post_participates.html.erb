@@ -14,9 +14,17 @@
 
           <div class="pi-price">價格：<%= participate.post.price %> 元 &nbsp;</div>
           <div class="pi-price">目前人數：<%= participate.post.participates_count %> 人</div>
+        
+        <% elsif participate.post.ending? %>
+          <h3>
+            <span class="label label-success">已結團</span>
+            <%= participate.post.title %> 
+          </h3>
+
+          <div class="pi-price">價格：<%= participate.post.price %> 元 &nbsp;</div>
+          <div class="pi-price">目前人數：<%= participate.post.participates_count %> 人</div>
 
         <% else %>
-        
           <h3>
             <span class="label label-danger">已流團</span>
             <%= participate.post.title %> 

@@ -35,7 +35,7 @@
         <% end %>
 
 
-        <% unless @post.opening? %>
+        <% if @post.opening? %>
           <% if @post.is_participated?(current_user) %>
             <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>            
           <% else %>
