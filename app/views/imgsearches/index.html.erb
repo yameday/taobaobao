@@ -5,7 +5,8 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Our Site!</div>
                 <div class="intro-heading">It's Time To Buy</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                <!--<a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>-->
+                <%= link_to "Start Now",  new_imgsearch_path, target: "_blank", class: "page-scroll btn btn-xl" %>
             </div>
         </div>
     </header>
@@ -325,7 +326,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <a href="#">
-                        <%= image_tag("img/logos/creative-market.jpg", :alt => "", :class => "img-responsive img-centered") %>
+                    <%= image_tag("img/logos/creative-market.jpg", :alt => "", :class => "img-responsive img-centered") %>
                     </a>
                 </div>
             </div>
