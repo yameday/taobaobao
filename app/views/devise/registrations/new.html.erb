@@ -7,7 +7,7 @@
 			
 			<div class="sign-up-htm">
 			 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            
+              <%= devise_error_messages! %>
               <div class="group">
                
                   <%= f.label :name, "姓名", class: "label" %>
@@ -44,7 +44,7 @@
                
               </div>
             <% end %>
-				  <%= devise_error_messages! %>
+				  
 			</div>
 		</div>
 	</div>

@@ -43,6 +43,7 @@ gem 'google-cloud-vision'
 
 gem 'simple_form'
 gem 'rest-client'
+gem 'ffaker'
 
 gem 'omniauth-facebook'
 
