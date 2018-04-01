@@ -37,6 +37,10 @@ body {
     @include body-font;
 }
 
+.pcard-size {
+   min-height: 480px;
+}
+
 
 
 /* Navbar */

@@ -21,7 +21,7 @@
           <%= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
         <% end %>
 
-      <% elsif post.ending?  %>
+      <% elsif post.ending? %>
         <h3>
           <span class="label label-success">已結團</span>
           <%= post.title %> 
