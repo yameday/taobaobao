@@ -1,26 +1,30 @@
 <% obj.each do |participate| %> 
   <div class="col-md-4 col-xs-12 portfolio-item">
     <div class="product-item">
-      <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-        <div class="portfolio-hover">
-          <div class="portfolio-hover-content">
-            <i class="fa fa-plus fa-3x"></i>
-          </div>
-        </div>
-       
+        <div class="product-item">
+                    <% if participate.post.opening? %>
+                        <span class="label label-warning">開團中</span>
+                    <% elsif participate.post.ending? %>
+                       
+                        <span class="label label-success">已結團</span>
+                      
+                    <% else %>
+                        <span class="label label-danger">已流團</span>
+                         
+                    <% end %>
         <div class="pi-img-wrapper">
           <%= link_to post_path(participate.post), target: "_blank", :class => 'button white' do %>
             <%= image_tag participate.post.photo, class: "img-responsive" %>
           <% end %>
         </div>
-      </a>
+    
 
       <div class="portfolio-caption" style="text-align:left">
-
+        
         <% if participate.post.opening? %>
           <h3>
             <%= participate.post.title %>
-            <span class="label label-warning">開團中</span>
+           
           </h3>
 
           <h4>
@@ -31,7 +35,7 @@
         <% elsif participate.post.ending? %>
           <h3>
             <%= participate.post.title %> 
-            <span class="label label-success">已結團</span>
+           
           </h3>
 
           <h4>
@@ -42,7 +46,7 @@
         <% else %>
           <h3>
             <%= participate.post.title %> 
-            <span class="label label-danger">已流團</span>
+           
           </h3>
           
           <h4>
