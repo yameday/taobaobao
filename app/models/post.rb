@@ -21,7 +21,7 @@ class Post < ApplicationRecord
     !over_due? && post_ending? 
   end
 
-  def unfinish?
+  def unfinished?
     over_due? || post_unfinished?
   end
 

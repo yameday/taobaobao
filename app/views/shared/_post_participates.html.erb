@@ -1,60 +1,62 @@
 <% obj.each do |participate| %> 
   <div class="col-md-4 col-xs-12 portfolio-item">
     <div class="product-item">
-        <div class="product-item">
-                    <% if participate.post.opening? %>
-                        <span class="label label-warning">開團中</span>
-                    <% elsif participate.post.ending? %>
-                       
-                        <span class="label label-success">已結團</span>
-                      
-                    <% else %>
-                        <span class="label label-danger">已流團</span>
-                         
-                    <% end %>
+      <div class="product-item">
+        <% if participate.post.opening? %>
+            <span class="label label-warning">開團中</span>
+        <% elsif participate.post.ending? %>
+           
+            <span class="label label-success">已結團</span>
+          
+        <% else %>
+            <span class="label label-danger">已流團</span>
+             
+        <% end %>
+
         <div class="pi-img-wrapper">
           <%= link_to post_path(participate.post), target: "_blank", :class => 'button white' do %>
             <%= image_tag participate.post.photo, class: "img-responsive" %>
           <% end %>
         </div>
-    
+  
 
-      <div class="portfolio-caption" style="text-align:left">
-        
-        <% if participate.post.opening? %>
-          <h3>
-            <%= participate.post.title %>
-           
-          </h3>
-
-          <h4>
-            價格：<%= participate.post.price %>
-            目前人數：<%= participate.post.participates_count %> 人
-          </h4>
-        
-        <% elsif participate.post.ending? %>
-          <h3>
-            <%= participate.post.title %> 
-           
-          </h3>
-
-          <h4>
-            價格：<%= participate.post.price %>
-            目前人數：<%= participate.post.participates_count %> 人
-          </h4>
-
-        <% else %>
-          <h3>
-            <%= participate.post.title %> 
-           
-          </h3>
+        <div class="portfolio-caption" style="text-align:left">
           
-          <h4>
-            價格：<%= participate.post.price %>
-            目前人數：<%= participate.post.participates_count %> 人
-          </h4>
+          <% if participate.post.opening? %>
+            <h3>
+              <%= participate.post.title %>
+             
+            </h3>
 
-        <% end %>
+            <h4>
+              價格：<%= participate.post.price %>
+              目前人數：<%= participate.post.participates_count %> 人
+            </h4>
+          
+          <% elsif participate.post.ending? %>
+            <h3>
+              <%= participate.post.title %> 
+             
+            </h3>
+
+            <h4>
+              價格：<%= participate.post.price %>
+              目前人數：<%= participate.post.participates_count %> 人
+            </h4>
+
+          <% else %>
+            <h3>
+              <%= participate.post.title %> 
+             
+            </h3>
+            
+            <h4>
+              價格：<%= participate.post.price %>
+              目前人數：<%= participate.post.participates_count %> 人
+            </h4>
+
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

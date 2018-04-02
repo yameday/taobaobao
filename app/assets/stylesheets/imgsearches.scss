@@ -241,7 +241,7 @@ body {
   top: 0;
   display: none;
   width: 100%;
-  height: 100%;
+  height: auto;
   text-align: center;
 }
 
@@ -280,6 +280,10 @@ body {
 
 .product-item h3 a:hover {
   color: #E02222;
+}
+
+.text-left {
+  padding-buttom: 14px;
 }
 
 .pi-price {

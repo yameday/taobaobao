@@ -3,8 +3,9 @@
     <header>
         <div class="container">
             <div class="intro-text">
+             
                 <div class="intro-lead-in">Welcome To Our Site!</div>
-                <div class="intro-heading">It's Time To Buy</div>
+                <div class="intro-heading">Upload Photo To Buy</div>
                 <!--<a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>-->
                 <%= link_to "Start Now",  new_imgsearch_path, target: "_blank", class: "page-scroll btn btn-xl" %>
             </div>
@@ -152,89 +153,34 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
+     <!-- Clients Aside -->
+    <aside class="clients">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                      <%= image_tag("img/logos/envato.jpg", :alt => "", :class => "img-responsive img-centered") %>
+
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                               
-                                <%= image_tag("img/about/1.jpg", :alt => "", :class => "img-responsive img-circle") %>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                              
-                                <%= image_tag("img/about/2.jpg", :alt => "", :class => "img-responsive img-circle") %>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                               
-                                <%= image_tag("img/about/3.jpg", :alt => "", :class => "img-responsive img-circle") %>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                               
-                                <%= image_tag("img/about/4.jpg", :alt => "", :class => "img-responsive img-circle") %>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <%= image_tag("img/logos/designmodo.jpg", :alt => "", :class => "img-responsive img-centered") %>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <%= image_tag("img/logos/themeforest.jpg", :alt => "", :class => "img-responsive img-centered") %>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                    <%= image_tag("img/logos/creative-market.jpg", :alt => "", :class => "img-responsive img-centered") %>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </aside>
 
     <!-- Team Section -->
     <section id="team" class="bg-light-gray">
@@ -304,35 +250,7 @@
         </div>
     </section>
 
-    <!-- Clients Aside -->
-    <aside class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                      <%= image_tag("img/logos/envato.jpg", :alt => "", :class => "img-responsive img-centered") %>
-
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag("img/logos/designmodo.jpg", :alt => "", :class => "img-responsive img-centered") %>
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag("img/logos/themeforest.jpg", :alt => "", :class => "img-responsive img-centered") %>
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                    <%= image_tag("img/logos/creative-market.jpg", :alt => "", :class => "img-responsive img-centered") %>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
+   
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
