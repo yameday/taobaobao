@@ -9,4 +9,3 @@ class UserMailer < ApplicationMailer
     subject: "Taobaobao | 已參加: #{participate.post.title} 團購"
   end
 end
-
