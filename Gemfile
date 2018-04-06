@@ -50,7 +50,8 @@ gem 'omniauth-facebook'
 gem 'filestack-rails', '~> 3.1.0'
 
 gem 'compass-rails', github: 'Compass/compass-rails'
-
+gem 'jquery-masonry-rails'
+gem 'imagesLoaded_rails'
 
 group :production do 
   gem 'pg' 

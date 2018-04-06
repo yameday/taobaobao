@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require agency.min
 //= require rails-ujs
+//= require masonry.pkgd
+//= require imagesloaded
 //= require turbolinks
 //= require_tree .
 
