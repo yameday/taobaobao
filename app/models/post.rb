@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
   validates_presence_of :title, :url, :photo, :description, :delivery, :price, :goal, :due_time
-  validates :price, :goal, numericality: { only_integer: true, greater_than: 0 }
+  validates :price, :goal, numericality: { greater_than: 0 }
   mount_uploader :photo, AvatarImageUploader  
   has_many :replies, dependent: :destroy
   belongs_to :user
