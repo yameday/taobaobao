@@ -1,29 +1,29 @@
- <section  class="bg-light-gray">
- <div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <% if current_user == @user %>
-        <%= simple_form_for @user do |f| %>
-        
-        <div class="col-xs-12 col-md-6">
-          <div class="avatar">
-            <%= image_tag @user.avatar, class: "img-responsive center-block" if @user.avatar? %>
-            <%= f.file_field :avatar %>
+<section  class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <% if current_user == @user %>
+          <%= simple_form_for @user do |f| %>
+          
+          <div class="col-xs-12 col-md-6">
+            <div class="avatar">
+              <%= image_tag @user.avatar, class: "img-responsive center-block" if @user.avatar? %>
+              <%= f.file_field :avatar %>
+            </div>
           </div>
-        </div>
 
-        <div class="col-xs-12 col-md-6">
-          <div class="user-info">
-            <%= f.input :name, placeholder: @user.email.split("@").first.capitalize %>
-            <%= f.input :intro, input_html: { rows: 6 } %>
-            <%= f.submit 'Update Profile', class: "btn btn-md btn-success" %>
-            <%= link_to "Back", user_path(@user), class: "btn btn-md btn-default" %>
+          <div class="col-xs-12 col-md-6">
+            <div class="user-info">
+              <%= f.input :name, placeholder: @user.email.split("@").first.capitalize %>
+              <%= f.input :intro, input_html: { rows: 6 } %>
+              <%= f.submit 'Update Profile', class: "btn btn-md btn-success" %>
+              <%= link_to "Back", user_path(@user), class: "btn btn-md btn-default" %>
+            </div>
           </div>
-        </div>
 
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
 </section>

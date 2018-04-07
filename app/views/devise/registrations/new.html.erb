@@ -6,52 +6,52 @@
 		<div class="login-form">
 			
 			<div class="sign-up-htm">
-			 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
-              <div class="group">
-               
-                  <%= f.label :name, "姓名", class: "label" %>
-                  <%= f.text_field :name, autofocus: true, class: "input" %>
-              
-              </div>
-
-              <div class="group">
-               
-                  <%= f.label :email, "電子信箱", class: "label" %>
-                  <%= f.text_field :email, autocomplete: "email", class: "input" %>
-               
-              </div>
-
-              <div class="group">
+			  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="group">
            
-                  <%= f.label :password, "密碼", class: "label" %>
-                  <%= f.password_field :password, autocomplete: "off", class: "input" %><br />
-                  <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %>
-                
-              </div>
+              <%= f.label :name, "姓名", class: "label" %>
+              <%= f.text_field :name, autofocus: true, class: "input" %>
+          
+          </div>
 
-              <div class="group">
-                
-                  <%= f.label :password_confirmation, "確認密碼", class: "label" %>
-                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
-               
-              </div>
+          <div class="group">
+           
+              <%= f.label :email, "電子信箱", class: "label" %>
+              <%= f.text_field :email, autocomplete: "email", class: "input" %>
+           
+          </div>
 
-              <div class="group">  
-                  <%= f.submit "註冊", class: "button" %>
-               
-              </div>
-            <% end %>
-				  
+          <div class="group">
+       
+              <%= f.label :password, "密碼", class: "label" %>
+              <%= f.password_field :password, autocomplete: "off", class: "input" %><br />
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+            
+          </div>
+
+          <div class="group">
+            
+              <%= f.label :password_confirmation, "確認密碼", class: "label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
+           
+          </div>
+
+          <div class="group">  
+              <%= f.submit "註冊", class: "button" %>
+           
+          </div>
+        <% end %>
+  	  
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-  body{
+body{
 	margin:0;
 	color:#6a6f8c;
 	background:#c8c8c8;
@@ -205,6 +205,6 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
 	text-align:center;
 }
-  </style>
+</style>
 
 

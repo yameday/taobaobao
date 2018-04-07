@@ -1,49 +1,46 @@
 
  <!-- Portfolio Grid Section -->
-    <section  class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">熱門合購</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <%= render partial: "shared/post_item_new", locals: { obj: @hot_posts } %> 
-
-               
-            </div>
-        </div>
-    </section>
+<section  class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">熱門合購</h2>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: "shared/post_item_new", locals: { obj: @hot_posts } %> 
+    </div>
+  </div>
+</section>
     
-     <section  class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">最新合購</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <%= render partial: "shared/post_item_new", locals: { obj: @recent_posts } %> 
-
-            </div>
-        </div>
-    </section>
+<section  class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">最新合購</h2>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: "shared/post_item_new", locals: { obj: @recent_posts } %> 
+    </div>
+</div>
+</section>
     
-     <section  class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">所有合購</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <%= render partial: "shared/post_item_new", locals: { obj: @posts } %> 
-               
-            </div>
-        </div>
-    </section>
+<section  class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">所有合購</h2>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: "shared/post_item_new", locals: { obj: @posts } %> 
+       
+    </div>
+  </div>
+</section>
 
 
