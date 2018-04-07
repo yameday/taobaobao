@@ -25,7 +25,7 @@
     </div>
     
     <div class="group">
-      <%= f.input :delivery, priority: [ "直送宅配到府" ], collection: [ "直送宅配到府", "直送超商取貨", "集貨宅配到府", "集貨超商取貨" ], label: "運送方式" %> 
+      <%= f.input :delivery, default: [ "直送宅配到府" ], collection: [ "直送宅配到府", "直送超商取貨", "集貨宅配到府", "集貨超商取貨" ], label: "運送方式" %> 
     </div>
     
     <div class="group">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="group">
-      <%= f.input :status, priority: [ "開團中" ], collection: [ "開團中", "已結團", "已流團"], label: "開團狀態" %> 
+      <%= f.input :status, default: [ "開團中" ], collection: [ "開團中", "已結團", "已流團"], label: "開團狀態" %> 
     </div>
     
     <%= f.button :submit, "送出", class: "btn btn-primary btn-lg" %>

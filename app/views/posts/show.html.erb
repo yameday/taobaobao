@@ -1,67 +1,89 @@
- <section  class="bg-light-gray">
- <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      
-
-      <div class="col-xs-12 col-md-6">
-        <p>
-          <% if @post.opening? %>
-            <span class="label label-warning">開團中</span>
-          <% elsif @post.ending? %>
-            <span class="label label-success">已結團</span>
-          <% else %>
-            <span class="label label-danger">已流團</span>
-          <% end %>
-          
-          
-        </p>
-        <div class="show-img">
-          <%= image_tag @post.photo, class: "img-responsive center-block" %> 
-        </div>
-      </div>
-      <h1><%= @post.title.capitalize %></h1>
-      <div class="col-xs-12 col-md-6">
-       
-        <p><strong><%= link_to "商品網址", @post.url, class: "btn btn-primary", target: :_blank %></strong> </p>
-        <p><strong>簡介：</strong> <%= @post.description %> </p>
-        <p><strong>主購：</strong> <%= @post.user.name %> </p>
-        <p><strong>價格：</strong> <%= @post.price %> 元</p>
-        <p><strong>成團人數：</strong> <%= @post.goal %> 人</p>
-        <p><strong>目前人數：</strong> <%= @post.participates_count %> 人</p>
-
-        <% if @post.opening? %>
-          <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
-        <% else %>
-          <p><strong>截止時間：</strong> <%= @post.due_time.strftime("%F %T") %></p>
-        <% end %>
-
-
-        <% if @post.opening? %>
-          <% if @post.is_participated?(current_user) %>
-            <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>            
-          <% else %>
-            <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-default" %>
-          <% end %>
-        <% end %>
-
-        <% if current_user == @post.user %>
-          <%= link_to '編輯', edit_post_path, class: "btn btn-default" %>
-        <% end %>
-
-      </div>
-    </div> 
-  </div>
-  
-  <div class="row">
-    <% if current_user == @post.user %> 
+<section  class="bg-light-gray">
+  <div class="container">
+    <div class="row">
       <div class="col-xs-12">
-        <div class="col-xs-12 col-md-4">
-          <br />
-          <p><%= render partial: "shared/post_participants", locals: { obj: @post } %></p> 
-        </div>  
+        
 
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-6">
+          <p>
+            <% if @post.opening? %>
+              <span class="label label-warning">開團中</span>
+            <% elsif @post.ending? %>
+              <span class="label label-success">已結團</span>
+            <% else %>
+              <span class="label label-danger">已流團</span>
+            <% end %>
+            
+            
+          </p>
+          <div class="show-img">
+            <%= image_tag @post.photo, class: "img-responsive center-block" %> 
+          </div>
+        </div>
+        
+        <h1><%= @post.title.capitalize %></h1>
+        <div class="col-xs-12 col-md-6">
+         
+          <p><strong><%= link_to "商品網址", @post.url, class: "btn btn-primary", target: :_blank %></strong> </p>
+          <p><strong>簡介：</strong> <%= @post.description %> </p>
+          <p><strong>主購：</strong> <%= @post.user.name %> </p>
+          <p><strong>價格：</strong> <%= @post.price %> 元</p>
+          <p><strong>成團人數：</strong> <%= @post.goal %> 人</p>
+          <p><strong>目前人數：</strong> <%= @post.participates_count %> 人</p>
+
+          <% if @post.opening? %>
+            <p><strong>截止時間：</strong> <%= time_ago_in_words(@post.due_time) %> Left</p>
+          <% else %>
+            <p><strong>截止時間：</strong> <%= @post.due_time.strftime("%F %T") %></p>
+          <% end %>
+
+
+          <% if @post.opening? %>
+            <% if @post.is_participated?(current_user) %>
+              <%= link_to '退出', unparticipate_post_path(@post), method: :post, class: "btn btn-primary" %>            
+            <% else %>
+              <%= link_to '參加', participate_post_path(@post), method: :post, class: "btn btn-default" %>
+            <% end %>
+          <% end %>
+
+          <% if current_user == @post.user %>
+            <%= link_to '編輯', edit_post_path, class: "btn btn-default" %>
+          <% end %>
+
+        </div>
+      </div> 
+    </div>
+    
+    <div class="row">
+      <% if current_user == @post.user %> 
+        <div class="col-xs-12">
+          <div class="col-xs-12 col-md-4">
+            <br />
+            <p><%= render partial: "shared/post_participants", locals: { obj: @post } %></p> 
+          </div>  
+
+          <div class="col-xs-12 col-md-8">
+            <div class="post-replies">
+              <hr />
+              <% @post.replies.each do |reply| %>
+                <h4><%= reply.user.name %></h2>
+                <p><%= simple_format(reply.comment) %></p>
+                <p class="text-muted"><%= time_ago_in_words reply.created_at %> ago</p>
+                <hr />
+              <% end %>
+            </div>
+
+            <div class="reply-form">
+              <%= simple_form_for [@post, @reply] do |f| %>
+                <%= f.input :comment, placeholder: "留言..." %>
+                <%= f.submit "留言", class: "btn btn-info" %>
+                <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+              <% end %>
+            </div>  
+          </div>   
+        </div>
+      <% else %>
+        <div class="col-xs-10 col-xs-offset-1">
           <div class="post-replies">
             <hr />
             <% @post.replies.each do |reply| %>
@@ -79,29 +101,8 @@
               <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
             <% end %>
           </div>  
-        </div>   
-      </div>
-    <% else %>
-      <div class="col-xs-10 col-xs-offset-1">
-        <div class="post-replies">
-          <hr />
-          <% @post.replies.each do |reply| %>
-            <h4><%= reply.user.name %></h2>
-            <p><%= simple_format(reply.comment) %></p>
-            <p class="text-muted"><%= time_ago_in_words reply.created_at %> ago</p>
-            <hr />
-          <% end %>
-        </div>
-
-        <div class="reply-form">
-          <%= simple_form_for [@post, @reply] do |f| %>
-            <%= f.input :comment, placeholder: "留言..." %>
-            <%= f.submit "留言", class: "btn btn-info" %>
-            <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
-          <% end %>
-        </div>  
-      </div> 
-    <% end %> 
-  </div>   
-</div>
-   </section>
+        </div> 
+      <% end %> 
+    </div>   
+  </div>
+</section>
