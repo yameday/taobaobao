@@ -8,8 +8,10 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
-    <div class="row">
-      <%= render partial: "shared/post_item_new", locals: { obj: @hot_posts } %> 
+    <div class="grid">
+      <div class="row">
+        <%= render partial: "shared/post_item_new", locals: { obj: @hot_posts } %> 
+      </div>
     </div>
   </div>
 </section>
@@ -22,10 +24,12 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
-    <div class="row">
-      <%= render partial: "shared/post_item_new", locals: { obj: @recent_posts } %> 
+    <div class="grid">
+      <div class="row">
+        <%= render partial: "shared/post_item_new", locals: { obj: @recent_posts } %> 
+      </div>
     </div>
-</div>
+  </div>
 </section>
     
 <section  class="bg-light-gray">
@@ -36,10 +40,13 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
-    <div class="row">
-      <%= render partial: "shared/post_item_new", locals: { obj: @posts } %> 
-       
+    <div class="grid">
+      <div class="row">
+        <%= render partial: "shared/post_item_new", locals: { obj: @posts } %> 
+         
+      </div>
     </div>
+    
   </div>
 </section>
 
