@@ -1,19 +1,24 @@
 <%  @sortarry.each do |f| %>
       
+
   <div class="grid-item col-xs-12 col-sm-6 col-md-4 ">
-           
-    <div class="pi-img-wrapper">
-      <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-          <%= link_to f[3], target: "_blank", :class => 'button white' do %>								
-            <%= image_tag f[1], class: "img-responsive" %>
-          <% end %>
-      </a>
-    </div>  
-    <div class="portfolio-cap1tion">
-      <h4><%= link_to f[0], f[3], target: "_blank" %></h4>
-      <p class="text-muted">價格：<%= f[2] %>元 </p>
+    <div class="product-item">
+      <div class="pi-img-wrapper">
+
+        <%= link_to f[3], target: "_blank", :class => 'button white' do %>								
+          <%= image_tag f[1], class: "img-responsive" %>
+        <% end %>
+      </div>  
+      <div class="portfolio-cap1tion">
+        <h4><%= f[0]%></h4>
+        <h4><%= link_to f[0], f[3], target: "_blank" %></h4>
+        <p class="text-muted">價格：<%= f[2] %>元 </p>
+        <%#= link_to '參加', participate_post_path(post), method: :post, class: "btn participate" %>
+      </div>
     </div>
   </div>
+<% end %>
 
-<% end %>       
-   
+       
+        
+
