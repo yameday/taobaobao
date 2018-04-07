@@ -36,9 +36,11 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
-    <div class="row">
+    <div class="grid">
+      <div class="row">
       <%#= render partial: "shared/imgsearch_lists_new", locals: { obj: @sortarry } %> 
       <%= render partial: "shared/post_item_new", locals: { obj: @user.posts } %>
+      </div>
     </div>
   </div>
 </section>
@@ -51,9 +53,11 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
-    <div class="row">
+    <div class="grid">
+      <div class="row">
       <%#= render partial: "shared/imgsearch_lists_new", locals: { obj: @sortarry } %> 
       <%= render partial: "shared/post_participates", locals: { obj: @user.participates } %>
+      </div>
     </div>
   </div>
 </section>
