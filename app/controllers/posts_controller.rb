@@ -51,6 +51,7 @@ class PostsController < ApplicationController
   def unparticipate
     participates = Participate.where(post: @post, user_id: current_user.id)
     participates.destroy_all
+    UserMailer.notify_unparticipate_create(current_user, @post).deliver_now!
     redirect_back(fallback_location: root_path)
   end
 
