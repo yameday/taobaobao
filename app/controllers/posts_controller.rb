@@ -43,12 +43,13 @@ class PostsController < ApplicationController
   end
 
   def participate
-    @post.participates.create!(user: current_user)
+    @post.participates.create!(user_id: current_user.id)
+    UserMailer.notify_participate_create(current_user, @post).deliver_now!
     redirect_back(fallback_location: root_path)
   end
 
   def unparticipate
-    participates = Participate.where(post: @post, user: current_user)
+    participates = Participate.where(post: @post, user_id: current_user.id)
     participates.destroy_all
     redirect_back(fallback_location: root_path)
   end

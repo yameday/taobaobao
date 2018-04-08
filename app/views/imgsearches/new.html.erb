@@ -24,27 +24,24 @@
         <!--<form id="imageUploadForm" class="imageUploadForm">-->
 
         <%#= form_tag imgsearches_path, :method => :post, :id => 'imageUploadForm', :class => 'imageUploadForm'  do  %>
-          <%= form_for @search, html: {class: "imageUploadForm", id: "imageUploadForm"}  do |f| %>
-            <%#=  form_tag(action: "imgsearches", method: "post", class: "imageUploadForm") do %>
+        <%= form_for @search, html: {class: "imageUploadForm", id: "imageUploadForm"}  do |f| %>
+          <%#=  form_tag(action: "imgsearches", method: "post", class: "imageUploadForm") do %>
 
-              <span class="helpText" id="helpText">Upload an image</span>
-              <!--<input type='file' id="file" class="uploadButton" accept="image/*" />-->
-              <%= f.file_field :photo, class: "uploadButton", accept: 'image/*' %>
-                <div id="uploadedImg" class="uploadedImg">
-                  <span class="unveil"></span>
-                </div>
-                <!--
-                  <span class="pickFile">
-                    <a href="#" class="pickFileButton">Pick file</a>
-                  </span>
-                  -->
+          <span class="helpText" id="helpText">Upload an image</span>
+          <!--<input type='file' id="file" class="uploadButton" accept="image/*" />-->
+          <%= f.file_field :photo, class: "uploadButton", accept: 'image/*' %>
+            <div id="uploadedImg" class="uploadedImg">
+              <span class="unveil"></span>
+            </div>
+              <!--
+                <span class="pickFile">
+                  <a href="#" class="pickFileButton">Pick file</a>
+                </span>
+                -->
         <% end %>
       </div>
-
     </div>
   </div>
-
-
 </div>
 
 

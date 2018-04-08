@@ -45,6 +45,7 @@ gem 'simple_form'
 gem 'rest-client'
 gem 'ffaker'
 
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'filestack-rails', '~> 3.1.0'
 

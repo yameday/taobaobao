@@ -18,7 +18,7 @@
                          <%#= image_tag("img/portfolio/escape.png", :alt => "", :class => "img-responsive") %>
                          <div class="pi-img-wrapper">
                          <%#= image_tag post.photo, class: "img-responsive" %>
-                           <%= link_to post_path(post), target: "_blank", :class => 'button white' do %>								
+                           <%= link_to post_path(post), target: "_blank", :class => 'button white' do %>        
                             <%= image_tag post.photo, class: "img-responsive" %>
                               <% end %>
                       </div>
@@ -41,24 +41,22 @@
                         <% elsif post.ending? %>
                          
                           <h3><%= post.title %></h3>
-
+ 
                           <h4>價格：$<%= post.price %> </h4>
                           <h4>參加人數：<%= post.participates_count %> 人</h4>
-
-
-                          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
-
+                           <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
+ 
                           
                         <% else %>
-
+ 
                           <h3><%= post.title %></h3>
  
                           <h4>價格：$<%= post.price %> </h4> 
                           <h4>參加人數：<%= post.participates_count %> 人</h4>
                          <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
-
+ 
                           <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
-
+ 
               
                         <% end %>
                        
@@ -71,5 +69,3 @@
   
   
 <% end %>
-
-       

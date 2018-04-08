@@ -341,6 +341,7 @@ DEPENDENCIES
   jquery-masonry-rails
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  omniauth
   omniauth-facebook
   pg
   puma (~> 3.7)
