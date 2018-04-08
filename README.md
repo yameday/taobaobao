@@ -2,58 +2,64 @@
 
 TaoBaoBao is a web app enable users to upload wanted products' pictures and get exactly the same or similar products search results on TaoBao, initiate group buying posts as a host buyer or participate other hosts' posts, and get notified with posts status changing. 
 
-##Motivation
+## Motivation
 
 TaoBaoBao is a co-working project dedicated to help users to get easier and more joyful products searching experience. This project is proposed by TransferHelper, developed by GemHunter. 
 
-##Screenshots
+## Screenshots
 
 [image]
 
 Include logo/demo screenshot etc.
 
-##Tech/framework used
+## Tech/framework used
 
 **Built with**
 
-* Ruby on Rails (http://rubyonrails.org/) - The back-end framework used
-* Bootstrap (https://getbootstrap.com/) - The front-end framework used
+* [Ruby on Rails](http://rubyonrails.org/) - The back-end framework used
+* [Bootstrap](https://getbootstrap.com/) - The front-end framework used
 
-##Features
+## Features
 
-Cross-platform
+Cross-platform  
 Facebook login
 
-##Installation
+## Installation
 
-To clone and run this application, you'll need Git (https://git-scm.com/) and Ruby on Rails (http://rubyonrails.org/) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com/) and [Ruby on Rails](http://rubyonrails.org/) installed on your computer. From your command line:
 
-# Clone this repository
+
+### Clone this repository
+```
 $ git clone https://github.com/yameday/taobaobao
-
-# Go into the repository
+```
+### Go into the repository
+```
 $ cd taobaobao
-
-# Install dependencies
+```
+### Install dependencies
+```
 $ bundle install
-
-# Run the app
+```
+### Run the app
+```
 $ rails server
+```
 
-Note: If you have difficulty installing Rails environment, follow this guide (http://installrails.com/).
+Note: If you have difficulty installing Rails environment, follow [this guide](http://installrails.com/).
 
-##Contribute
+## Contribute
 
 
-##Credits
+## Credits
 
-Project Proposer - TransferHelper (https://www.transferhelper.com.tw/), Taiwan's promising FinTech startup company focusing on transfer solution.
+Project Proposer - [TransferHelper](https://www.transferhelper.com.tw/), Taiwan's promising FinTech startup company focusing on transfer solution.
 
-Project Development - GemHunter (), members: Bob Lai ( Tech Lead ), Kay Cheng, and Francis Huang
+Project Development - [GemHunter](), members: Bob Lai ( Tech Lead ), Kay Cheng, and Francis Huang
 
-Demo Day Campaign Host - AlphaCamp (https://tw.alphacamp.co/), Asia's top tech & startup school.
+Demo Day Campaign Host - [AlphaCamp](https://tw.alphacamp.co/), Asia's top tech & startup school.
 
-##License
+## License
 
 MIT License. Copyright 2018 GemHunter
 
