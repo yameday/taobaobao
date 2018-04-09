@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
 
-  validates_presence_of :title, :url, :photo, :description, :delivery, :price, :goal, :due_time
-  validates :price, :goal, numericality: { greater_than: 0 }
+  validates_presence_of :title, :url, :description, :delivery, :price, :goal, :due_time
+  #validates :photo, if: '!remote_photo_url'
+  #validates :remote_photo_url, if: '!photo'
+  validates_presence_of :photo, :unless => :check_photo?
+  
+  validates :price, :goal, numericality: { only_integer: true, greater_than: 0 }
   mount_uploader :photo, AvatarImageUploader  
   has_many :replies, dependent: :destroy
   belongs_to :user
@@ -41,6 +45,10 @@ class Post < ApplicationRecord
 
   def post_unfinished?
     self.status == "已流團"
+  end
+  
+  def check_photo?
+    self.remote_photo_url
   end
 
 end
