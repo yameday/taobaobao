@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :participate, :unparticipate, :postend]
   
   def index
-    @posts = Post.all
-    @recent_posts = Post.order(created_at: :desc).limit(6)
-    @hot_posts = Post.order(participates_count: :desc).limit(6)
+    @posts = Post.order(created_at: :desc)
+    @recent_posts = Post.where(status: "開團中").order(created_at: :desc).limit(6)
+    @hot_posts = Post.where(status: "開團中").order(participates_count: :desc).limit(6)
   end
 
   def new

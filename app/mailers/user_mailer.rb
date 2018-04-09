@@ -33,6 +33,7 @@ class UserMailer < ApplicationMailer
 
     @participate = participate
     @post = post
+    @atm = 12.times.map{rand(10)}.join
 
     mail to: participate.email,
     subject: "Taobaobao | #{post.title} 團購已成團"

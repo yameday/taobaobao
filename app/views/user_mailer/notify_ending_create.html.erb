@@ -2,8 +2,12 @@
   <%= @participate.name %>
 </h3>
 
-<p>您在Taobaobao參加<%= @post.title %>的團購，已經成團！</p>
-<p>以下為匯款帳號：0800489444，再麻煩您匯款！謝謝您！<p>
+<p>您在Taobaobao參加<%= @post.title %>的團購，已在<%= @post.updated_at.strftime("%Y-%m-%d %H:%M") %>成團！</p>
+<strong><p>以下為匯款資訊：</p>
+<p>匯款銀行:台灣銀行</p>
+<p>銀行代號:004</p>
+<p>匯款帳號:<%= @atm %></p></strong>
+<p>可臨櫃、線上或至便利超商匯款，再煩請您匯款！謝謝您！</p>
 <p>若有問題歡迎隨時來信！</p>
 
 <!-- skip --> 
