@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    UserMailer.notify_post_create(current_user, @post).deliver_now!
     @post.user = current_user
     if @post.save
       redirect_to posts_path
@@ -43,8 +44,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Great!"
       redirect_to post_path
     else
-      flash[:alert] = "Oops!"
-      redirect_to post_path
+      redirect_to posts_path
     end
   end
 

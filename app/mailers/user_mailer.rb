@@ -20,6 +20,15 @@ class UserMailer < ApplicationMailer
     subject: "Taobaobao | 已退出: #{post.title} 團購"
   end
 
+  def notify_post_create(user, post)
+
+    @post = post
+    @user = user
+
+    mail to: user.email,
+    subject: "Taobaobao | 已開: #{post.title} 團購"
+  end
+
   def notify_ending_create(participate, post)
 
     @participate = participate
