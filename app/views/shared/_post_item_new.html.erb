@@ -1,71 +1,60 @@
 <% obj.each do |post| %>
  
   <div class="grid-item col-xs-12 col-sm-6 col-md-4">
-                   <div class="product-item">
-                    <% if post.opening? %>
-                        <span class="label label-warning">開團中</span>
-                    <% elsif post.ending? %>
-                       
-                        <span class="label label-success">已結團</span>
-                      
-                    <% else %>
-                        <span class="label label-danger">已流團</span>
-                         
-                    <% end %>
-                  
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        
-                         <%#= image_tag("img/portfolio/escape.png", :alt => "", :class => "img-responsive") %>
-                         <div class="pi-img-wrapper">
-                         <%#= image_tag post.photo, class: "img-responsive" %>
-                           <%= link_to post_path(post), target: "_blank", :class => 'button white' do %>        
-                            <%= image_tag post.photo, class: "img-responsive" %>
-                              <% end %>
-                      </div>
-                    </a>
-                    <div class="portfolio-caption" style="text-align:left">
-                       <% if post.opening? %>
-                        
-                         <h3><%= post.title %></h3>
-                           <h4>價格：$<%= post.price %> </h4>
-                           
-                            <h4>目前人數：<%= post.participates_count %> 人</h4>
-                            <div class="text-right" style="float: right;">
-                                <% if post.is_participated?(current_user) %>    
-                                  <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn btn-danger participate" %>
-                                <% else %>
-                                  <%= link_to '參加', participate_post_path(post), method: :post, class: "btn btn-info participate" %>
-                                <% end %>
-                            </div>
-                            <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
-                        <% elsif post.ending? %>
-                         
-                          <h3><%= post.title %></h3>
- 
-                          <h4>價格：$<%= post.price %> </h4>
-                          <h4>參加人數：<%= post.participates_count %> 人</h4>
-                           <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
- 
-                          
-                        <% else %>
- 
-                          <h3><%= post.title %></h3>
- 
-                          <h4>價格：$<%= post.price %> </h4> 
-                          <h4>參加人數：<%= post.participates_count %> 人</h4>
-                         <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
- 
-                          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
- 
-              
-                        <% end %>
-                       
-                    </div>
-                </div>
- 
-</div>
+    <div class="product-item">
+      <% if post.opening? %>
+        <span class="label label-warning">開團中</span>
+      
+      <% elsif post.ending? %>
+        <span class="label label-success">已結團</span>
+      
+      <% else %>
+        <span class="label label-danger">已流團</span>
+         
+      <% end %>
   
-  
-  
-  
+      <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+        
+        <%#= image_tag("img/portfolio/escape.png", :alt => "", :class => "img-responsive") %>
+        <div class="pi-img-wrapper">
+        <%#= image_tag post.photo, class: "img-responsive" %>
+          <%= link_to post_path(post), target: "_blank", :class => 'button white' do %>        
+            <%= image_tag post.photo, class: "img-responsive" %>
+          <% end %>
+        </div>
+      </a>
+      <div class="portfolio-caption" style="text-align:left">
+        <% if post.opening? %>
+          
+          <h3><%= post.title %></h3>
+          <h4>價格：$<%= post.price %> </h4>
+           
+          <h4>目前人數：<%= post.participates_count %> 人</h4>
+          <div class="text-right" style="float: right;">
+            <% if post.is_participated?(current_user) %>    
+              <%= link_to '退出', unparticipate_post_path(post), method: :post, class: "btn btn-danger participate" %>
+            <% else %>
+              <%= link_to '參加', participate_post_path(post), method: :post, class: "btn btn-info participate" %>
+            <% end %>
+          </div>
+          <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
+        
+        <% elsif post.ending? %>
+          <h3><%= post.title %></h3>
+          <h4>價格：$<%= post.price %> </h4>
+          <h4>參加人數：<%= post.participates_count %> 人</h4>
+          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
+
+        <% else %>
+          <h3><%= post.title %></h3>
+          <h4>價格：$<%= post.price %> </h4> 
+          <h4>參加人數：<%= post.participates_count %> 人</h4>
+          <!-- <div class="text-muted">目前人數:<%= post.participates_count %> 人</div>-->
+          <div class="text-muted">截止時間：<%= post.due_time.strftime("%F %T") %> </div>
+
+        <% end %>
+         
+      </div>
+    </div>
+  </div>
 <% end %>

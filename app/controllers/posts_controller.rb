@@ -34,6 +34,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    UserMailer.notify_post_create(current_user, @post).deliver_now!
     @post.user = current_user
     if @post.save
       redirect_to posts_path
@@ -55,10 +56,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    @post.update(post_params)
+    if @post.status == "已結團"
+      @post.participated_user.each do |participate|
+        UserMailer.notify_ending_create(participate, @post).deliver_now!
+      end 
+      flash[:notice] = "Great!"
       redirect_to post_path
     else
-      render :edit
+      redirect_to posts_path
     end
   end
 
@@ -71,6 +77,7 @@ class PostsController < ApplicationController
   def unparticipate
     participates = Participate.where(post: @post, user_id: current_user.id)
     participates.destroy_all
+    UserMailer.notify_unparticipate_create(current_user, @post).deliver_now!
     redirect_back(fallback_location: root_path)
   end
 
@@ -92,5 +99,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time, :status, :remote_photo_url)
   end
-
 end
+
