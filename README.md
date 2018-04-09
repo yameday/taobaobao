@@ -50,6 +50,7 @@ Note: If you have difficulty installing Rails environment, follow [this guide](h
 
 ## Contribute
 
+You may contribute in several ways like creating new features, fixing bugs, improving documentation and examples or translating any document here to your language. 
 
 ## Credits
 
