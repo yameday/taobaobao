@@ -1,5 +1,7 @@
 class ImgsearchesController < ApplicationController
   
+  require 'net/http/post/multipart'
+  
   def index
   
   end
@@ -34,9 +36,8 @@ class ImgsearchesController < ApplicationController
     @search = Imgsearch.new(search_params)
     imageurl = @search.photo.current_path
     
-    #call_color(imageurl)
-    ary_result = Hash.new
-    ary_result = call_bao(@search.photo)
+    
+    ary_result = call_taobao_image_search(@search.photo)
     
     @search.status = ary_result['status']
     @search.description = ary_result['description']
@@ -59,57 +60,15 @@ private
     params.require(:imgsearch).permit(:photo)
   end
   
-  def call_color(url_image)
-     
-        require 'rubygems'
-        require 'json'
-        require 'net/http/post/multipart'
-       # abort(url)
-        url = URI.parse('http://www.pictaculous.com/')
+  def call_taobao_image_search(url_image)
        
-          req = Net::HTTP::Post::Multipart.new url.path,
-             "upload" => UploadIO.new(File.new(url_image.current_path), url_image.content_type, url_image.filename)
-             
-          
-          res = Net::HTTP.start(url.host, url.port) do |http|
-            res1 = http.request(req)
-            
-             return_str = res1.body
-             return_str = '{"status":1,"name":"TB1bIUKa8jTBKNjSZFDXXbVgVXa","url":"//g-search3.alicdn.com/img/bao/uploaded/i4/TB1bIUKa8jTBKNjSZFDXXbVgVXa","error":false}'
-            obj = JSON.parse(return_str)
-            taobao_upload_id = obj['name']
-            taobao_url = obj['name']
-            @search.description = res1.body
-            
-            ary = Hash.new 
-            if taobao_upload_id
-              # @search.status = 'OK'
-              ary['status'] = 'OK'
-              # @search.description = taobao_url
-              ary['description'] = taobao_url
-            else  
-              ary['status'] = 'error'
-              # @search.status = 'error'
-              # @search.description = obj
-              ary['description'] = obj
-            end
-           
-          end
-            
-  end
-  
-  def call_bao(url_image)
-     
-        require 'rubygems'
-        require 'json'
-        require 'net/http/post/multipart'
        # abort(url)
         #url = URI.parse('http://www.pictaculous.com/')
         url = URI.parse('https://s.taobao.com/image')
           req = Net::HTTP::Post::Multipart.new url.path,
             # "upload" => UploadIO.new(File.new(url_image), "image/jpeg", "shoes.jpg")
              "imgfile" => UploadIO.new(File.new(url_image.current_path), url_image.content_type, url_image.filename)
-          ary = Hash.new 
+          result = {} 
           res = Net::HTTP.start(url.host, url.port) do |http|
             res1 = http.request(req)
             
@@ -124,25 +83,24 @@ private
             
             if taobao_upload_id
               # @search.status = 'OK'
-              ary['status'] = 'OK'
+              result['status'] = 'OK'
               # @search.description = taobao_url
-              ary['description'] = taobao_url
+              result['description'] = taobao_url
             else  
-              ary['status'] = 'error'
+              result['status'] = 'error'
               # @search.status = 'error'
               # @search.description = obj
-              ary['description'] = obj
+              result['description'] = obj
             end
            
           end
     
-          return ary
+          return result
   end
   
-  def crewler_taobao (url)
+  def crewler_taobao(url)
     
-        require 'net/http'
-        require 'json'
+       
         begin
             # uri = URI('http://placekitten.com/')
           
