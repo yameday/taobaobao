@@ -35,10 +35,16 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    @post.update(post_params)
+    if @post.status == "已結團"
+      @post.participated_user.each do |participate|
+        UserMailer.notify_ending_create(participate, @post).deliver_now!
+      end 
+      flash[:notice] = "Great!"
       redirect_to post_path
     else
-      render :edit
+      flash[:alert] = "Oops!"
+      redirect_to post_path
     end
   end
 
@@ -73,5 +79,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time, :status)
   end
-
 end
+
