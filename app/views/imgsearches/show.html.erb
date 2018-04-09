@@ -23,6 +23,11 @@
         <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
+    <div class="text-center">
+      <%= link_to '依相似度排序', imgsearch_path, class: "btn btn-info" %>
+      <%= link_to '依價錢排序', imgsearch_path(filter: "price"), class: "btn btn-info" %>
+    </div>
+    
     <div class="grid">
       <div class="row">
         <%= render partial: "shared/imgsearch_lists_new", locals: { obj: @sortarry } %> 

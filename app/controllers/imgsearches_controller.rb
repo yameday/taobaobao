@@ -7,6 +7,7 @@ class ImgsearchesController < ApplicationController
   end
   
   def show
+    
     @search = Imgsearch.find(params[:id])
     
     data_hash = JSON.parse(@search.result)
@@ -21,8 +22,13 @@ class ImgsearchesController < ApplicationController
         subarray.push("https:" + x['detail_url'])
         @values.push(subarray)
     end
-  
-    @sortarry = @values.sort_by { |e| e[2].to_i }
+    
+    if params[:filter]
+      @sortarry = @values.sort_by { |e| e[2].to_i }
+    else
+      @sortarry = @values
+    end
+    
     
   end
   

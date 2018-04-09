@@ -34,7 +34,6 @@
     
     <div class="group">
       <%#= f.input :price, label: "價格" %> 
-      <%= f.object.price%>
       <%= f.input :price, label: "價格", input_html: { value: f.object.price  || '' }%>
     </div>
     
