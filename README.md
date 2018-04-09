@@ -4,7 +4,7 @@ TaoBaoBao is a web app enable users to upload wanted products' pictures and get 
 
 ## Motivation
 
-TaoBaoBao is a co-working project dedicated to help users to get easier and more joyful products searching experience. This project is proposed by TransferHelper, developed by GemHunter. 
+TaoBaoBao is a co-working project dedicated to help users get easier and more joyful products searching experience. This project is proposed by TransferHelper, developed by GemHunter. 
 
 ## Screenshots
 
