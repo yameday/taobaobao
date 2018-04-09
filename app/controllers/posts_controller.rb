@@ -10,6 +10,26 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    
+    #FOR one button new
+    if params[:price]
+      @post.price = params[:price]
+    end
+    
+    if params[:name]
+      @post.title = params[:name]
+    end
+    
+    if params[:url]
+      @post.url = params[:url]
+    end
+    
+     if params[:imglink]
+      @post.photo = params[:imglink]
+      @post.remote_photo_url = params[:imglink]
+       
+    end
+    
   end
 
   def create
@@ -77,7 +97,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time, :status)
+    params.require(:post).permit(:title, :photo, :url, :description, :delivery, :price, :goal, :due_time, :status, :remote_photo_url)
   end
 end
 
