@@ -4,13 +4,6 @@
     <div class="product-item">
       <% if post.opening? %>
         <span class="label label-warning">開團中</span>
-      
-      <% elsif post.ending? %>
-        <span class="label label-success">已結團</span>
-      
-      <% else %>
-        <span class="label label-danger">已流團</span>
-         
       <% end %>
   
       <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
