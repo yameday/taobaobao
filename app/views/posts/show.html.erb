@@ -77,7 +77,7 @@
               <%= simple_form_for [@post, @reply] do |f| %>
                 <%= f.input :comment, placeholder: "留言..." %>
                 <%= f.submit "留言", class: "btn btn-info" %>
-                <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+                <%= link_to "回到上一頁", posts_path, class: "btn btn-default" %>
               <% end %>
             </div>  
           </div>   
@@ -98,7 +98,7 @@
             <%= simple_form_for [@post, @reply] do |f| %>
               <%= f.input :comment, placeholder: "留言..." %>
               <%= f.submit "留言", class: "btn btn-info" %>
-              <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+              <%= link_to "回到上一頁", posts_path, class: "btn btn-default" %>
             <% end %>
           </div>  
         </div> 
