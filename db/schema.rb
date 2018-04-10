@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331114023) do
+ActiveRecord::Schema.define(version: 20180410175331) do
 
   create_table "imgsearches", force: :cascade do |t|
     t.string "photo"
     t.text "description"
     t.string "status"
-    t.text "result"
+    t.binary "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
