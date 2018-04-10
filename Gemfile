@@ -54,7 +54,8 @@ gem 'jquery-masonry-rails'
 gem 'imagesLoaded_rails'
 
 group :production do 
-  gem 'pg' 
+#  gem 'pg'
+   gem "mysql2" 
 end 
 
 # Use Capistrano for deployment
