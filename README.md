@@ -10,14 +10,6 @@ See [user_stories.md](/user_stories.md)
 
 TaoBaoBao is a co-working project dedicated to help users get easier and more joyful products searching experience. This project is proposed by TransferHelper, developed by GemHunter. 
 
-## Screenshots
-
-![Index]
-(https://github.com/yameday/taobaobao/blob/fix/readme/app/assets/images/index.png)
-![Search]()
-![Login]()
-![Post]()
-
 ## Tech/framework used
 
 **Built with**
