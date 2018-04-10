@@ -12,7 +12,8 @@ TaoBaoBao is a co-working project dedicated to help users get easier and more jo
 
 ## Screenshots
 
-![Index]()
+![Index]
+(https://github.com/yameday/taobaobao/blob/fix/readme/app/assets/images/index.png)
 ![Search]()
 ![Login]()
 ![Post]()
