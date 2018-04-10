@@ -12,9 +12,10 @@ TaoBaoBao is a co-working project dedicated to help users get easier and more jo
 
 ## Screenshots
 
-[image]
-
-Include logo/demo screenshot etc.
+![Index]()
+![Search]()
+![Login]()
+![Post]()
 
 ## Tech/framework used
 
@@ -44,6 +45,22 @@ $ cd taobaobao
 ### Install dependencies
 ```
 $ bundle install
+```
+### Run Migration
+```
+$ rails db:migrate
+```
+### Generate Fake Users
+```
+$ rails dev:fetch_user
+```
+### Generate Fake Post & Participate
+```
+$ rails dev:fetch_participate
+```
+### Generate Fake Reply
+```
+$ rails dev:fetch_reply
 ```
 ### Run the app
 ```
