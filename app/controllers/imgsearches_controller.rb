@@ -20,11 +20,14 @@ class ImgsearchesController < ApplicationController
         subarray.push("https:" + x['pic_url'])
         subarray.push(x['view_price'])  
         subarray.push("https:" + x['detail_url'])
+        subarray.push(x['comment_count'])
         @values.push(subarray)
     end
     
-    if params[:filter]
+    if params[:filter] == 'price'
       @sortarry = @values.sort_by { |e| e[2].to_i }
+    elsif params[:filter] == 'renqi'
+      @sortarry = @values.sort_by { |e| -e[4].to_i }
     else
       @sortarry = @values
     end
