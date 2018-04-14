@@ -53,6 +53,8 @@ gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'jquery-masonry-rails'
 gem 'imagesLoaded_rails'
 
+gem 'aasm'
+
 group :production do 
 
    gem "mysql2" 
