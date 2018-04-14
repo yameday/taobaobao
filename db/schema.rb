@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20180410181753) do
     t.index ["user_id"], name: "index_participates_on_user_id"
   end
 
-  create_table "postends", force: :cascade do |t|
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_postends_on_post_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
