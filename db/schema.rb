@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415024414) do
+ActiveRecord::Schema.define(version: 20180415075550) do
 
   create_table "imgsearches", force: :cascade do |t|
     t.string "photo"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180415024414) do
     t.string "bank"
     t.string "atm"
     t.integer "quantity"
-    t.integer "total"
+    t.integer "price"
     t.index ["post_id"], name: "index_participates_on_post_id"
     t.index ["user_id"], name: "index_participates_on_user_id"
   end
