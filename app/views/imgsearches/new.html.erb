@@ -66,10 +66,9 @@
     $helpText = $("#helpText");
 
   $file.on('change', function() {
-    console.log($file);
-    console.log('eeee');
+  
     readURL(this);
-    console.log('ggg');
+   
     $form.addClass('loading');
   });
   $uploadedImg.on('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
@@ -77,11 +76,11 @@
   });
   $helpText.on('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
     $("#imageUploadForm").submit();
-    setTimeout(function() {
+    //setTimeout(function() {
       //$file.val('');  
       //$form.removeClass('loading').removeClass('loaded');
       // $("#imageUploadForm").submit();
-    }, 1000);
+    //}, 1000);
   });
 
 </script>

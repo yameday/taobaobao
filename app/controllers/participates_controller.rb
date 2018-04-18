@@ -15,6 +15,6 @@ class ParticipatesController < ApplicationController
   private
 
   def participate_params
-    params.require(:participate).permit(:user_id, :post_id)
+    params.require(:participate).permit(:user_id, :post_id, :state, :bank, :atm, :quantity, :price)
   end
 end

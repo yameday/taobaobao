@@ -37,7 +37,7 @@
               <%= link_to '參加', participate_post_path(post), method: :post, class: "btn btn-info participate" %>
             <% end %>
           </div>
-          <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time %> 前</div>
+          <div class="text-muted text-left" style="float: left";>截止時間：<%= post.due_time.strftime("%F %T") %> 前</div>
         
         <% elsif post.ending? %>
           <h3><%= post.title %></h3>
